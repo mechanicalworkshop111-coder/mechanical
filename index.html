@@ -1,11 +1,67 @@
-<!doctype html> <html lang="en"> <head> <meta charset="UTF-8"> `<meta name=“viewport”
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
 
-content=“width=device-width, initial-scale=1”>`
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-<style> body{font-family: Arial, sans-serif; margin:0; background:#f4f4f4; display:flex; justify-content:center; align-items:center; height:100vh;} .login-box{width:350px; background:#fff; padding:25px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.2);} h2{text-align:center; margin-bottom:20px;} input{width:100%; padding:12px; margin:10px 0; border:1px solid #ccc; border-radius:5px;} button{width:100%; padding:12px; background:#007BFF; color:#fff; border:none; border-radius:5px; font-size:16px cursor:pointer;} button:hover{background:#0056b3;} a{display:block; text-align:center; margin-top:15px; text-decoration:none;}   `
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
 
-<div class="login-box"> <h2>Login</h2> <form> <input type="email" placeholder="Email" required> `<
+.container {
+    text-align: center;
+    color: white;
+}
 
-input type=“password” placeholder=“Password” required> <
+h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
 
-<button type="submit">Login</button> </form> <a href="register.html">Create New Account</a>
+p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    color: #667eea;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Welcome</h1>
+    <p>Welcome to my website</p>
+
+    <button onclick="window.location.href='login.html'">
+        Login
+    </button>
+</div>
+
+</body>
+</html>
