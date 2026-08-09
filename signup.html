@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up | Mechanical Library SP</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at center, #202a31 0%, #080b0d 65%);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* ================= BACKGROUND GEARS ================= */
+
+        .gear {
+            position: fixed;
+            color: rgba(255, 106, 0, 0.07);
+            user-select: none;
+            z-index: 0;
+            animation: rotate 20s linear infinite;
+        }
+
+        .gear1 {
+            font-size: 280px;
+            left: -100px;
+            top: -80px;
+        }
+
+        .gear2 {
+            font-size: 320px;
+            right: -120px;
+            bottom: -100px;
+            animation-direction: reverse;
+        }
+
+        .gear3 {
+            font-size: 110px;
+            right: 15%;
+            top: 8%;
+            animation-duration: 9s;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ================= MAIN ================= */
+
+        .signup-container {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .signup-box {
+            background: rgba(17, 23, 28, 0.97);
+            border: 1px solid #303a40;
+            border-top: 3px solid #ff6a00;
+            border-radius: 16px;
+            padding: 35px 32px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.7),
+                0 0 30px rgba(255, 106, 0, 0.08);
+        }
+
+        /* ================= LOGO ================= */
+
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 12px;
+            border: 2px solid #ff6a00;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff6a00;
+            font-size: 40px;
+            animation: rotate 8s linear infinite;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .logo h1 span {
+            color: #ff6a00;
+        }
+
+        .logo p {
+            margin-top: 6px;
+            color: #7f8a91;
+            font-size: 13px;
+        }
+
+        /* ================= TITLE ================= */
+
+        .title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .title p {
+            color: #89949b;
+            font-size: 14px;
+        }
+
+        /* ================= FORM ================= */
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            color: #c9d0d4;
+        }
+
+        .input-box {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff6a00;
+            font-size: 17px;
+        }
+
+        .input-box input,
+        .input-box select {
+            width: 100%;
+            height: 50px;
+            background: #0c1115;
+            border: 1px solid #303a40;
+            border-radius: 8px;
+            outline: none;
+            color: #fff;
+            padding: 0 42px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .input-box input:focus,
+        .input-box select:focus {
+            border-color: #ff6a00;
+            box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.08);
+        }
+
+        .input-box input::placeholder {
+            color: #58636a;
+        }
+
+        /* ================= PASSWORD EYE ================= */
+
+        .eye {
+            position: absolute;
+            right: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #777;
+            font-size: 17px;
+        }
+
+        .eye:hover {
+            color: #ff6a00;
+        }
+
+        /* ================= PASSWORD STRENGTH ================= */
+
+        .password-strength {
+            margin-top: 7px;
+            height: 4px;
+            width: 100%;
+            background: #252d32;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: 0.3s;
+        }
+
+        .strength-text {
+            display: block;
+            margin-top: 5px;
+            font-size: 11px;
+            color: #777;
+        }
+
+        /* ================= TERMS ================= */
+
+        .terms {
+            display: flex;
+            gap: 9px;
+            align-items: flex-start;
+            margin: 5px 0 22px;
+            color: #818b91;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .terms input {
+            margin-top: 3px;
+            accent-color: #ff6a00;
+        }
+
+        .terms a {
+            color: #ff6a00;
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        /* ================= BUTTON ================= */
+
+        .signup-btn {
+            width: 100%;
+            height: 52px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(
+                135deg,
+                #ff6a00,
+                #ff8500
+            );
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 22px rgba(255, 106, 0, 0.18);
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 106, 0, 0.3);
+        }
+
+        .signup-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ================= LOGIN ================= */
+
+        .login-link {
+            text-align: center;
+            margin-top: 22px;
+            color: #818b91;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #ff6a00;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* ================= BACK ================= */
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #737d83;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back-home:hover {
+            color: #ff6a00;
+        }
+
+        /* ================= SECURITY ================= */
+
+        .security {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 7px;
+            text-align: center;
+            color: #687279;
+            font-size: 11px;
+            background: rgba(255, 106, 0, 0.04);
+            border: 1px solid rgba(255, 106, 0, 0.08);
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 600px) {
+
+            .signup-box {
+                padding: 28px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .logo h1 {
+                font-size: 19px;
+            }
+
+            .title h2 {
+                font-size: 24px;
+            }
+
+            .gear {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BACKGROUND GEARS -->
+
+    <div class="gear gear1">⚙</div>
+    <div class="gear gear2">⚙</div>
+    <div class="gear gear3">⚙</div>
+
+
+    <!-- SIGNUP -->
+
+    <div class="signup-container">
+
+        <div class="signup-box">
+
+            <!-- LOGO -->
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    ⚙
+                </div>
+
+                <h1>
+                    MECHANICAL <span>LIBRARY SP</span>
+                </h1>
+
+                <p>
+                    Mechanical Knowledge & Technical Library
+                </p>
+
+            </div>
+
+
+            <!-- TITLE -->
+
+            <div class="title">
+
+                <h2>Create Your Account</h2>
+
+                <p>
+                    Join the Mechanical Library SP community
+                </p>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form id="signupForm">
+
+                <!-- NAME + USER ID -->
+
+                <div class="form-row">
+
+                    <div class="input-group">
+
+                        <label for="fullname">
+                            Full Name
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="input-icon">👤</span>
+
+                            <input
+                                type="text"
+                                id="fullname"
+                                name="fullname"
+                                placeholder="Enter your name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="userid">
+                            User ID
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="input-icon">⚙</span>
+
+                            <input
+                                type="text"
+                                id="userid"
+                                name="userid"
+                                placeholder="Create User ID"
+                                autocomplete="username"
+                                minlength="4"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MOBILE + EMAIL -->
+
+                <div class="form-row">
+
+                    <div class="input-group">
+
+                        <label for="mobile">
+                            Mobile Number
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="input-icon">📱</span>
+
+                            <input
+                                type="tel"
+                                id="mobile"
+                                name="mobile"
+                                placeholder="10 digit mobile"
+                                pattern="[0-9]{10}"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="input-icon">✉</span>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Your email"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Create Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">🔐</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a strong password"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <span
+                            class="eye"
+                            id="passwordEye"
+                        >
+                            👁
+                        </span>
+
+                    </div>
+
+                    <div class="password-strength">
+                        <div
+                            class="strength-bar"
+                            id="strengthBar"
+                        ></div>
+                    </div>
+
+                    <span
+                        class="strength-text"
+                        id="strengthText"
+                    >
+                        Minimum 8 characters
+                    </span>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-box">
+
+                        <span class="input-icon">🔒</span>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Re-enter your password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <span
+                            class="eye"
+                            id="confirmEye"
+                        >
+                            👁
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    <span>
+                        I agree to the
+                        <a href="#">
+                            Terms & Conditions
+                        </a>
+                        and
+                        <a href="#">
+                            Privacy Policy
+                        </a>
+                        of Mechanical Library SP.
+                    </span>
+
+                </label>
+
+
+                <!-- BUTTON -->
+
+                <button
+                    type="submit"
+                    class="signup-btn"
+                >
+                    ⚙ CREATE MY ACCOUNT
+                </button>
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <div class="login-link">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login Here
+                </a>
+
+            </div>
+
+
+            <!-- HOME -->
+
+            <a
+                href="index.html"
+                class="back-home"
+            >
+                ← Back to Mechanical Library SP
+            </a>
+
+
+            <!-- SECURITY -->
+
+            <div class="security">
+                🔒 Your information will be securely protected
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /* ================= PASSWORD SHOW / HIDE ================= */
+
+        function togglePassword(inputId, eyeId) {
+
+            const input =
+                document.getElementById(inputId);
+
+            const eye =
+                document.getElementById(eyeId);
+
+            eye.addEventListener("click", function () {
+
+                if (input.type === "password") {
+
+                    input.type = "text";
+                    eye.textContent = "🙈";
+
+                } else {
+
+                    input.type = "password";
+                    eye.textContent = "👁";
+
+                }
+
+            });
+        }
+
+
+        togglePassword(
+            "password",
+            "passwordEye"
+        );
+
+        togglePassword(
+            "confirmPassword",
+            "confirmEye"
+        );
+
+
+        /* ================= PASSWORD STRENGTH ================= */
+
+        const password =
+            document.getElementById("password");
+
+        const strengthBar =
+            document.getElementById("strengthBar");
+
+        const strengthText =
+            document.getElementById("strengthText");
+
+
+        password.addEventListener(
+            "input",
+            function () {
+
+                const value = password.value;
+
+                let strength = 0;
+
+                if (value.length >= 8)
+                    strength++;
+
+                if (/[A-Z]/.test(value))
+                    strength++;
+
+                if (/[0-9]/.test(value))
+                    strength++;
+
+                if (/[^A-Za-z0-9]/.test(value))
+                    strength++;
+
+
+                if (value.length === 0) {
+
+                    strengthBar.style.width = "0%";
+                    strengthText.textContent =
+                        "Minimum 8 characters";
+
+                }
+
+                else if (strength <= 1) {
+
+                    strengthBar.style.width = "25%";
+                    strengthText.textContent =
+                        "Weak Password";
+
+                }
+
+                else if (strength === 2) {
+
+                    strengthBar.style.width = "50%";
+                    strengthText.textContent =
+                        "Medium Password";
+
+                }
+
+                else if (strength === 3) {
+
+                    strengthBar.style.width = "75%";
+                    strengthText.textContent =
+                        "Strong Password";
+
+                }
+
+                else {
+
+                    strengthBar.style.width = "100%";
+                    strengthText.textContent =
+                        "Very Strong Password";
+
+                }
+
+            }
+        );
+
+
+        /* ================= SIGNUP FORM ================= */
+
+        document
+            .getElementById("signupForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+
+                const passwordValue =
+                    document.getElementById("password").value;
+
+                const confirmPasswordValue =
+                    document.getElementById("confirmPassword").value;
+
+                const mobile =
+                    document.getElementById("mobile").value;
+
+
+                /* Password Match */
+
+                if (passwordValue !== confirmPasswordValue) {
+
+                    alert(
+                        "Password and Confirm Password do not match."
+                    );
+
+                    return;
+                }
+
+
+                /* Mobile Validation */
+
+                if (!/^[0-9]{10}$/.test(mobile)) {
+
+                    alert(
+                        "Please enter a valid 10 digit mobile number."
+                    );
+
+                    return;
+                }
+
+
+                /* Terms */
+
+              
