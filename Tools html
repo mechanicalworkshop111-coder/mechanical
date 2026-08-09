@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Workshop Tools | Mechanical Library SP</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #090d10;
+            color: #fff;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 72px;
+            background: #11171c;
+            border-bottom: 2px solid #ff6a00;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gear {
+            font-size: 34px;
+            color: #ff6a00;
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .logo h1 {
+            font-size: 17px;
+            line-height: 1.1;
+        }
+
+        .logo span {
+            color: #ff6a00;
+        }
+
+        .back {
+            text-decoration: none;
+            color: #bbb;
+            border: 1px solid #343d43;
+            padding: 9px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .back:hover {
+            color: #ff6a00;
+            border-color: #ff6a00;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px 35px;
+            background:
+                radial-gradient(circle at center,
+                #202a31 0%,
+                #090d10 65%);
+        }
+
+        .badge {
+            display: inline-block;
+            color: #ff6a00;
+            border: 1px solid #ff6a00;
+            padding: 7px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size:
