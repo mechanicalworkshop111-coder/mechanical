@@ -1,12 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Login | Mechanical Library SP</title>
 
+
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -14,47 +23,83 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+
         body {
+
             min-height: 100vh;
+
             background:
-                radial-gradient(circle at center, #202a31 0%, #080b0d 65%);
+                radial-gradient(
+                    circle at center,
+                    #202a31 0%,
+                    #080b0d 65%
+                );
+
             color: #fff;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             padding: 25px 15px;
+
             overflow: hidden;
         }
 
+
         .gear {
+
             position: fixed;
+
             color: rgba(255, 106, 0, 0.07);
+
             user-select: none;
+
             z-index: 0;
-            animation: rotate 20s linear infinite;
+
+            animation:
+                rotate 20s linear infinite;
         }
 
+
         .gear1 {
+
             font-size: 280px;
+
             left: -100px;
+
             top: -80px;
         }
 
+
         .gear2 {
+
             font-size: 320px;
+
             right: -120px;
+
             bottom: -100px;
+
             animation-direction: reverse;
         }
 
+
         .gear3 {
+
             font-size: 110px;
+
             right: 15%;
+
             top: 8%;
+
             animation-duration: 9s;
         }
 
+
         @keyframes rotate {
+
             from {
                 transform: rotate(0deg);
             }
@@ -62,189 +107,322 @@
             to {
                 transform: rotate(360deg);
             }
+
         }
 
+
         .login-container {
+
             width: 100%;
+
             max-width: 500px;
+
             position: relative;
+
             z-index: 5;
         }
 
+
         .login-box {
-            background: rgba(17, 23, 28, 0.97);
+
+            background:
+                rgba(17, 23, 28, 0.97);
+
             border: 1px solid #303a40;
+
             border-top: 3px solid #ff6a00;
+
             border-radius: 16px;
+
             padding: 35px 32px;
+
             box-shadow:
                 0 20px 60px rgba(0, 0, 0, 0.7),
                 0 0 30px rgba(255, 106, 0, 0.08);
         }
 
+
         .logo {
+
             text-align: center;
+
             margin-bottom: 28px;
         }
 
+
         .logo-icon {
+
             width: 70px;
+
             height: 70px;
-            margin: 0 auto 12px;
+
+            margin:
+                0 auto 12px;
+
             border: 2px solid #ff6a00;
+
             border-radius: 50%;
+
             display: flex;
+
             justify-content: center;
+
             align-items: center;
+
             color: #ff6a00;
+
             font-size: 40px;
-            animation: rotate 8s linear infinite;
+
+            animation:
+                rotate 8s linear infinite;
         }
 
+
         .logo h1 {
+
             font-size: 22px;
+
             letter-spacing: 1px;
         }
 
+
         .logo h1 span {
+
             color: #ff6a00;
         }
 
+
         .logo p {
+
             color: #9aa4aa;
+
             font-size: 14px;
+
             margin-top: 8px;
         }
 
+
         .form-group {
+
             margin-bottom: 18px;
         }
 
+
         .form-group label {
+
             display: block;
+
             margin-bottom: 8px;
+
             color: #d7dde0;
+
             font-size: 14px;
         }
 
+
         .password-box {
+
             position: relative;
         }
 
+
         .form-group input {
+
             width: 100%;
+
             padding: 14px 15px;
+
             background: #0c1114;
+
             border: 1px solid #3a444a;
+
             border-radius: 8px;
+
             color: #fff;
+
             font-size: 15px;
+
             outline: none;
+
             transition: 0.3s;
         }
 
+
         .password-box input {
+
             padding-right: 55px;
         }
 
+
         .form-group input:focus {
+
             border-color: #ff6a00;
-            box-shadow: 0 0 10px rgba(255, 106, 0, 0.15);
+
+            box-shadow:
+                0 0 10px
+                rgba(255, 106, 0, 0.15);
         }
 
+
         .show-password {
+
             position: absolute;
+
             right: 12px;
+
             top: 50%;
-            transform: translateY(-50%);
+
+            transform:
+                translateY(-50%);
+
             background: none;
+
             border: none;
+
             color: #9aa4aa;
+
             cursor: pointer;
+
             font-size: 13px;
         }
 
+
         .show-password:hover {
+
             color: #ff6a00;
         }
 
+
         .forgot {
+
             text-align: right;
+
             margin-top: -7px;
+
             margin-bottom: 20px;
         }
 
+
         .forgot a {
+
             color: #ff6a00;
+
             text-decoration: none;
+
             font-size: 13px;
         }
 
+
         .login-btn {
+
             width: 100%;
+
             padding: 14px;
+
             border: none;
+
             border-radius: 8px;
+
             background: #ff6a00;
+
             color: #fff;
+
             font-size: 16px;
+
             font-weight: bold;
+
             cursor: pointer;
+
             transition: 0.3s;
         }
 
+
         .login-btn:hover {
+
             background: #e85f00;
-            transform: translateY(-1px);
+
+            transform:
+                translateY(-1px);
         }
 
+
         .login-btn:disabled {
+
             opacity: 0.6;
+
             cursor: not-allowed;
+
             transform: none;
         }
 
+
         #message {
+
             text-align: center;
+
             margin-top: 18px;
+
             min-height: 20px;
+
             font-size: 14px;
         }
+
 
         .signup-link {
+
             text-align: center;
+
             margin-top: 22px;
+
             color: #9aa4aa;
+
             font-size: 14px;
         }
 
+
         .signup-link a {
+
             color: #ff6a00;
+
             text-decoration: none;
+
             font-weight: bold;
         }
 
+
         .signup-link a:hover {
+
             text-decoration: underline;
         }
 
+
         @media (max-width: 500px) {
+
             .login-box {
+
                 padding: 30px 20px;
             }
 
             .gear1,
             .gear2 {
+
                 display: none;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <div class="gear gear1">⚙</div>
+
     <div class="gear gear2">⚙</div>
+
     <div class="gear gear3">⚙</div>
 
 
@@ -252,31 +430,40 @@
 
         <div class="login-box">
 
+
             <div class="logo">
 
-                <div class="logo-icon">⚙</div>
+                <div class="logo-icon">
+                    ⚙
+                </div>
 
                 <h1>
-                    Mechanical <span>Library SP</span>
+                    Mechanical
+                    <span>Library SP</span>
                 </h1>
 
-                <p>Login to your account</p>
+                <p>
+                    Login to your account
+                </p>
 
             </div>
 
 
             <form id="loginForm">
 
+
                 <div class="form-group">
 
-                    <label for="email">
-                        Email Address
+                    <label for="mobile">
+                        Mobile Number
                     </label>
 
                     <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
+                        type="tel"
+                        id="mobile"
+                        placeholder="Enter 10 digit mobile number"
+                        maxlength="10"
+                        inputmode="numeric"
                         required
                     >
 
@@ -289,6 +476,7 @@
                         Password
                     </label>
 
+
                     <div class="password-box">
 
                         <input
@@ -297,6 +485,7 @@
                             placeholder="Enter your password"
                             required
                         >
+
 
                         <button
                             type="button"
@@ -328,6 +517,7 @@
                     Login
                 </button>
 
+
             </form>
 
 
@@ -344,6 +534,7 @@
 
             </div>
 
+
         </div>
 
     </div>
@@ -351,19 +542,28 @@
 
     <script type="module">
 
-        import { initializeApp }
-        from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+        import {
+            initializeApp
+        }
+        from
+        "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
 
         import {
             getAuth,
             signInWithEmailAndPassword
         }
-        from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+        from
+        "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
+
+        // Firebase Configuration
 
         const firebaseConfig = {
 
-            apiKey: "AIzaSyAs5uPMjnz801RxS9uYISNnU3IfVjh4tUY",
+            apiKey:
+                "AIzaSyAs5uPMjnz801RxS9uYISNnU3IfVjh4tUY",
 
             authDomain:
                 "mechanical-library-sp.firebaseapp.com",
@@ -382,54 +582,90 @@
 
             measurementId:
                 "G-KK5HCBSFX6"
+
         };
 
 
-        const app = initializeApp(firebaseConfig);
+        // Firebase Start
 
-        const auth = getAuth(app);
+        const app =
+            initializeApp(firebaseConfig);
 
+
+        const auth =
+            getAuth(app);
+
+
+        // Elements
 
         const loginForm =
-            document.getElementById("loginForm");
+            document.getElementById(
+                "loginForm"
+            );
 
-        const emailInput =
-            document.getElementById("email");
+
+        const mobileInput =
+            document.getElementById(
+                "mobile"
+            );
+
 
         const passwordInput =
-            document.getElementById("password");
+            document.getElementById(
+                "password"
+            );
+
 
         const loginButton =
-            document.getElementById("loginButton");
+            document.getElementById(
+                "loginButton"
+            );
+
 
         const message =
-            document.getElementById("message");
+            document.getElementById(
+                "message"
+            );
+
 
         const showPassword =
-            document.getElementById("showPassword");
+            document.getElementById(
+                "showPassword"
+            );
 
+
+        // Show / Hide Password
 
         showPassword.addEventListener(
             "click",
             function() {
 
-                if (passwordInput.type === "password") {
+                if (
+                    passwordInput.type ===
+                    "password"
+                ) {
 
-                    passwordInput.type = "text";
+                    passwordInput.type =
+                        "text";
 
-                    showPassword.textContent = "Hide";
+                    showPassword.textContent =
+                        "Hide";
 
                 } else {
 
-                    passwordInput.type = "password";
+                    passwordInput.type =
+                        "password";
 
-                    showPassword.textContent = "Show";
+                    showPassword.textContent =
+                        "Show";
 
                 }
 
             }
         );
 
+
+        // Login
 
         loginForm.addEventListener(
             "submit",
@@ -438,16 +674,39 @@
                 event.preventDefault();
 
 
-                const email =
-                    emailInput.value.trim();
+                const mobile =
+                    mobileInput.value.trim();
+
 
                 const password =
                     passwordInput.value;
 
 
+                // Mobile validation
+
+                if (
+                    !/^[0-9]{10}$/.test(
+                        mobile
+                    )
+                ) {
+
+                    message.style.color =
+                        "#ff4d4d";
+
+                    message.textContent =
+                        "Please enter a valid 10 digit mobile number.";
+
+                    return;
+
+                }
+
+
                 message.textContent = "";
 
-                loginButton.disabled = true;
+
+                loginButton.disabled =
+                    true;
+
 
                 loginButton.textContent =
                     "Logging in...";
@@ -455,9 +714,18 @@
 
                 try {
 
+
+                    // वही internal email
+                    // जो Signup में बनाया था
+
+                    const internalEmail =
+                        mobile +
+                        "@mechanicallibrary.app";
+
+
                     await signInWithEmailAndPassword(
                         auth,
-                        email,
+                        internalEmail,
                         password
                     );
 
@@ -465,19 +733,26 @@
                     message.style.color =
                         "#00d084";
 
+
                     message.textContent =
                         "Login successful!";
 
 
-                    setTimeout(function() {
+                    // Home Page
 
-                        window.location.href =
-                            "index.html";
+                    setTimeout(
+                        function() {
 
-                    }, 800);
+                            window.location.href =
+                                "index.html";
+
+                        },
+                        800
+                    );
 
 
                 } catch (error) {
+
 
                     console.error(error);
 
@@ -492,7 +767,7 @@
                     ) {
 
                         message.textContent =
-                            "Invalid email or password.";
+                            "Mobile number or password is incorrect.";
 
                     }
 
@@ -502,7 +777,7 @@
                     ) {
 
                         message.textContent =
-                            "Account not found.";
+                            "This mobile number is not registered.";
 
                     }
 
@@ -516,16 +791,6 @@
 
                     }
 
-                    else if (
-                        error.code ===
-                        "auth/invalid-email"
-                    ) {
-
-                        message.textContent =
-                            "Please enter a valid email.";
-
-                    }
-
                     else {
 
                         message.textContent =
@@ -536,7 +801,9 @@
                 }
 
 
-                loginButton.disabled = false;
+                loginButton.disabled =
+                    false;
+
 
                 loginButton.textContent =
                     "Login";
@@ -546,5 +813,8 @@
 
     </script>
 
+
 </body>
+
 </html>
+```
