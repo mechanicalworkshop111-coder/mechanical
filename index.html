@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
-    <title>OBD Error Codes | Mechanical Library SP</title>
+    <title>Mechanical Library SP</title>
+
 
     <style>
 
@@ -15,288 +17,1263 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
+
 
         body {
             background: #0b0f12;
-            color: white;
+            color: #ffffff;
+            overflow-x: hidden;
         }
+
+
+        /* ================= HEADER ================= */
 
         header {
-            padding: 18px 6%;
+            width: 100%;
+
+            padding: 15px 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
             background: #11171c;
+
             border-bottom: 2px solid #ff6a00;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
         }
 
-        header h1 {
-            font-size: 22px;
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
         }
 
-        header span {
+
+        .gear {
+            font-size: 38px;
+
+            color: #ff6a00;
+
+            animation:
+                rotate 8s linear infinite;
+        }
+
+
+        @keyframes rotate {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        .logo h1 {
+            font-size: 21px;
+
+            letter-spacing: 1px;
+        }
+
+
+        .logo span {
             color: #ff6a00;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 30px 6%;
+
+        nav {
+            display: flex;
+
+            gap: 15px;
+
+            align-items: center;
         }
 
-        .back {
-            display: inline-block;
-            color: #ff6a00;
+
+        nav a {
+            color: #ddd;
+
             text-decoration: none;
-            margin-bottom: 25px;
+
+            font-size: 15px;
+
+            transition: .3s;
         }
 
-        h2 {
+
+        nav a:hover {
+            color: #ff6a00;
+        }
+
+
+        .login-btn {
+            padding: 9px 18px;
+
+            border: 1px solid #ff6a00;
+
+            border-radius: 6px;
+
+            color: #ff6a00 !important;
+        }
+
+
+        .signup-btn {
+            padding: 10px 18px;
+
+            background: #ff6a00;
+
+            color: #fff !important;
+
+            border-radius: 6px;
+        }
+
+
+        .signup-btn:hover {
+            background: #ff8500;
+        }
+
+
+        /* ================= USER AREA ================= */
+
+        #userArea {
+            display: none;
+
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        #userText {
+            color: #aaa;
+
+            font-size: 13px;
+        }
+
+
+        .logout-btn {
+            padding: 9px 15px;
+
+            border: 1px solid #444;
+
+            background: transparent;
+
+            color: #ddd;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+
+        .logout-btn:hover {
+            border-color: #ff6a00;
+
+            color: #ff6a00;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 88vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            position: relative;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #202a31 0%,
+                    #0b0f12 60%
+                );
+        }
+
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border: 25px dashed #252f35;
+
+            border-radius: 50%;
+
+            right: -100px;
+            top: 100px;
+
+            animation:
+                rotate 25s linear infinite;
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border: 18px dashed #252f35;
+
+            border-radius: 50%;
+
+            left: -100px;
+            bottom: 50px;
+
+            animation:
+                rotate 18s linear infinite reverse;
+        }
+
+
+        .hero-content {
+
+            max-width: 850px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .tag {
+
+            display: inline-block;
+
+            padding: 8px 18px;
+
+            border: 1px solid #ff6a00;
+
+            border-radius: 30px;
+
+            color: #ff6a00;
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+        }
+
+
+        .hero h2 {
+
+            font-size:
+                clamp(38px, 7vw, 75px);
+
+            line-height: 1.05;
+
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero h2 span {
+            color: #ff6a00;
+        }
+
+
+        .hero p {
+
+            color: #aeb7bd;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+
+        .hero-buttons {
+
+            margin-top: 35px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .main-btn {
+
+            padding: 14px 28px;
+
+            background: #ff6a00;
+
+            border: none;
+
+            border-radius: 7px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+
+        .main-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 8px 25px
+                rgba(255,106,0,.35);
+        }
+
+
+        .second-btn {
+
+            padding: 13px 28px;
+
+            border: 1px solid #555;
+
+            border-radius: 7px;
+
+            color: white;
+
+            text-decoration: none;
+
+            transition: .3s;
+        }
+
+
+        .second-btn:hover {
+
+            border-color: #ff6a00;
+
+            color: #ff6a00;
+        }
+
+
+        /* ================= FEATURES ================= */
+
+        .features {
+
+            padding: 70px 6%;
+
+            background: #0e1317;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-title h3 {
+
+            font-size: 35px;
+        }
+
+
+        .section-title span {
+
+            color: #ff6a00;
+        }
+
+
+        .cards {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+
+            gap: 20px;
+        }
+
+
+        .card {
+
+            background: #151c21;
+
+            padding: 30px 22px;
+
+            border-radius: 10px;
+
+            border: 1px solid #252e34;
+
+            transition: .3s;
+
+            text-decoration: none;
+
+            color: white;
+
+            display: block;
+
+            cursor: pointer;
+        }
+
+
+        .card:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color: #ff6a00;
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,106,0,.10);
+        }
+
+
+        .card-icon {
+
+            font-size: 38px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .card h4 {
+
+            font-size: 20px;
+
             margin-bottom: 10px;
         }
 
-        .subtitle {
-            color: #999;
-            margin-bottom: 30px;
+
+        .card p {
+
+            color: #929ca3;
+
+            line-height: 1.6;
+
+            font-size: 14px;
         }
 
-        .code-list {
-            display: grid;
-            gap: 15px;
+
+        /* ================= USER PANEL ================= */
+
+        .user-panel {
+
+            max-width: 1150px;
+
+            margin: 0 auto;
+
+            padding: 25px 6% 0;
         }
 
-        .code-card {
-            background: #151c21;
-            border: 1px solid #293239;
-            border-radius: 10px;
-            padding: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
 
-        .code-card:hover {
-            border-color: #ff6a00;
-            transform: translateY(-3px);
-        }
+        .user-box {
 
-        .code {
-            color: #ff6a00;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .name {
-            margin-top: 8px;
-            font-size: 17px;
-        }
-
-        .details {
             display: none;
-            margin-top: 18px;
-            padding-top: 18px;
-            border-top: 1px solid #333;
-            color: #ccc;
-            line-height: 1.7;
+
+            background: #151c21;
+
+            border: 1px solid #293239;
+
+            border-left: 3px solid #ff6a00;
+
+            border-radius: 10px;
+
+            padding: 18px 20px;
         }
 
-        .details strong {
+
+        .user-box strong {
             color: #ff6a00;
+        }
+
+
+        #loggedUser {
+            color: #aaa;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            padding: 25px;
+
+            text-align: center;
+
+            background: #080b0d;
+
+            border-top:
+                1px solid #242b30;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        footer span {
+            color: #ff6a00;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 13px 5%;
+            }
+
+
+            nav {
+                gap: 8px;
+            }
+
+
+            nav a:not(.login-btn):not(.signup-btn) {
+                display: none;
+            }
+
+
+            .logo h1 {
+                font-size: 16px;
+            }
+
+
+            .gear {
+                font-size: 30px;
+            }
+
+
+            #userText {
+                display: none;
+            }
+
+
+            .logout-btn {
+                padding: 8px 10px;
+            }
+
+
+            .hero {
+                min-height: 80vh;
+            }
+
+
+            .hero p {
+                font-size: 15px;
+            }
+
+
+            .hero h2 {
+                font-size: 42px;
+            }
+
+
+            .user-panel {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
         }
 
     </style>
 
 </head>
 
+
 <body>
+
+
+<!-- ================= HEADER ================= -->
 
 <header>
 
-    <h1>
-        MECHANICAL <span>LIBRARY SP</span>
-    </h1>
+
+    <div class="logo">
+
+        <div class="gear">
+            ⚙
+        </div>
+
+
+        <h1>
+
+            MECHANICAL
+            <span>LIBRARY SP</span>
+
+        </h1>
+
+    </div>
+
+
+
+    <nav>
+
+
+        <a href="#">
+            Home
+        </a>
+
+
+        <a href="#library">
+            Library
+        </a>
+
+
+        <a href="#library">
+            Tools
+        </a>
+
+
+        <!-- LOGIN -->
+
+        <a
+            href="login.html"
+            class="login-btn"
+            id="loginLink"
+        >
+            Login
+        </a>
+
+
+        <!-- SIGN UP -->
+
+        <a
+            href="signup.html"
+            class="signup-btn"
+            id="signupLink"
+        >
+            Sign Up
+        </a>
+
+
+        <!-- USER AREA -->
+
+        <div id="userArea">
+
+            <span id="userText">
+                Logged in
+            </span>
+
+            <button
+                class="logout-btn"
+                id="logoutButton"
+            >
+                Logout
+            </button>
+
+        </div>
+
+
+    </nav>
 
 </header>
 
-<div class="container">
-
-    <a href="index.html" class="back">
-        ← वापस Home पर जाएँ
-    </a>
-
-    <h2>📟 OBD Error Codes</h2>
-
-    <p class="subtitle">
-        Diagnostic Trouble Codes की जानकारी
-    </p>
 
 
-    <div class="code-list">
+<!-- ================= USER PANEL ================= -->
 
+<div class="user-panel">
 
-        <!-- P0487 -->
+    <div
+        class="user-box"
+        id="userBox"
+    >
 
-        <div class="code-card"
-            onclick="showDetails('p0487')">
+        👤 Welcome back!
 
-            <div class="code">
-                P0487
-            </div>
-
-            <div class="name">
-                EGR Throttle Control Circuit
-            </div>
-
-            <div
-                class="details"
-                id="p0487">
-
-                <strong>Code:</strong> P0487
-                <br><br>
-
-                <strong>समस्या:</strong>
-                EGR throttle control circuit में
-                समस्या हो सकती है।
-
-                <br><br>
-
-                <strong>Possible Causes:</strong>
-                <br>
-                • Wiring खराब
-                <br>
-                • Connector loose
-                <br>
-                • Throttle/EGR valve समस्या
-                <br>
-                • Sensor या actuator fault
-                <br><br>
-
-                <strong>Symptoms:</strong>
-                <br>
-                • Engine warning light
-                <br>
-                • Power कम होना
-                <br>
-                • खराब acceleration
-                <br><br>
-
-                <strong>Repair:</strong>
-                <br>
-                Wiring और connector check करें।
-                EGR/throttle system की जांच करें।
-
-            </div>
-
-        </div>
-
-
-        <!-- P0036 -->
-
-        <div class="code-card"
-            onclick="showDetails('p0036')">
-
-            <div class="code">
-                P0036
-            </div>
-
-            <div class="name">
-                HO2S Heater Control Circuit
-            </div>
-
-            <div
-                class="details"
-                id="p0036">
-
-                <strong>Code:</strong> P0036
-
-                <br><br>
-
-                <strong>Possible Causes:</strong>
-                <br>
-                • Oxygen sensor heater fault
-                <br>
-                • Wiring problem
-                <br>
-                • Connector problem
-                <br>
-                • Fuse या power supply issue
-
-                <br><br>
-
-                <strong>Repair:</strong>
-                <br>
-                Sensor wiring, fuse और connector
-                को check करें।
-
-            </div>
-
-        </div>
-
-
-        <!-- B2AAA -->
-
-        <div class="code-card"
-            onclick="showDetails('b2aaa')">
-
-            <div class="code">
-                B2AAA
-            </div>
-
-            <div class="name">
-                Manufacturer Specific / Diagnostic Code
-            </div>
-
-            <div
-                class="details"
-                id="b2aaa">
-
-                <strong>Code:</strong> B2AAA
-
-                <br><br>
-
-                इस code का exact meaning vehicle
-                manufacturer और ECU पर depend कर सकता है।
-
-                <br><br>
-
-                <strong>सबसे पहले check करें:</strong>
-                <br>
-                • Vehicle make
-                <br>
-                • Model
-                <br>
-                • Engine
-                <br>
-                • ECU/module
-                <br>
-                • Scan tool की complete description
-
-            </div>
-
-        </div>
-
+        <strong id="loggedUser">
+            User
+        </strong>
 
     </div>
 
 </div>
 
 
-<script>
 
-function showDetails(id) {
+<!-- ================= HERO ================= -->
 
-    const details =
-        document.getElementById(id);
+<section class="hero">
 
-    if (details.style.display === "block") {
 
-        details.style.display = "none";
+    <div class="hero-content">
 
-    } else {
 
-        details.style.display = "block";
+        <div class="tag">
 
+            ⚙ MECHANICAL KNOWLEDGE HUB
+
+        </div>
+
+
+
+        <h2>
+
+            Learn. Repair.
+            <br>
+
+            <span>
+                Master Mechanics.
+            </span>
+
+        </h2>
+
+
+
+        <p>
+
+            Welcome to Mechanical Library SP —
+            your digital workshop for automobile
+            mechanics, engine knowledge, diagnostic
+            codes, spare parts information, wiring
+            diagrams and technical notes.
+
+        </p>
+
+
+
+        <div class="hero-buttons">
+
+
+            <a
+                href="signup.html"
+                class="main-btn"
+                id="heroSignup"
+            >
+
+                🚀 Create Account
+
+            </a>
+
+
+            <a
+                href="#library"
+                class="second-btn"
+            >
+
+                🔧 Explore Library
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section
+    class="features"
+    id="library"
+>
+
+
+    <div class="section-title">
+
+        <h3>
+
+            <span>
+                Mechanical
+            </span>
+
+            Library
+
+        </h3>
+
+    </div>
+
+
+
+    <div class="cards">
+
+
+        <!-- ENGINE -->
+
+        <a
+            href="#"
+            class="card"
+        >
+
+            <div class="card-icon">
+                🔧
+            </div>
+
+
+            <h4>
+                Engine Knowledge
+            </h4>
+
+
+            <p>
+
+                Engine components,
+                working principles,
+                troubleshooting and
+                repair information.
+
+            </p>
+
+        </a>
+
+
+
+        <!-- VEHICLE -->
+
+        <a
+            href="#"
+            class="card"
+        >
+
+            <div class="card-icon">
+                🚗
+            </div>
+
+
+            <h4>
+                Vehicle Systems
+            </h4>
+
+
+            <p>
+
+                Complete information
+                about vehicle systems,
+                sensors, electrical and
+                mechanical components.
+
+            </p>
+
+        </a>
+
+
+
+        <!-- TOOLS -->
+
+        <a
+            href="#"
+            class="card"
+        >
+
+            <div class="card-icon">
+                🧰
+            </div>
+
+
+            <h4>
+                Tools & Equipment
+            </h4>
+
+
+            <p>
+
+                Mechanical tools,
+                measuring instruments,
+                diagnostic equipment
+                and their uses.
+
+            </p>
+
+        </a>
+
+
+
+        <!-- ELECTRICAL -->
+
+        <a
+            href="#"
+            class="card"
+        >
+
+            <div class="card-icon">
+                ⚡
+            </div>
+
+
+            <h4>
+                Electrical
+            </h4>
+
+
+            <p>
+
+                AC/DC wiring, sensors,
+                circuits, batteries,
+                alternator and starter
+                system knowledge.
+
+            </p>
+
+        </a>
+
+
+
+        <!-- OBD ERROR CODES -->
+
+        <a
+            href="obd-codes.html"
+            class="card"
+        >
+
+            <div class="card-icon">
+                📟
+            </div>
+
+
+            <h4>
+                OBD Error Codes
+            </h4>
+
+
+            <p>
+
+                Diagnostic trouble codes,
+                symptoms, possible causes
+                and repair solutions.
+
+            </p>
+
+        </a>
+
+
+
+        <!-- TECHNICAL NOTES -->
+
+        <a
+            href="#"
+            class="card"
+        >
+
+            <div class="card-icon">
+                📚
+            </div>
+
+
+            <h4>
+                Technical Notes
+            </h4>
+
+
+            <p>
+
+                Easy-to-understand
+                mechanical notes for
+                students, mechanics
+                and technicians.
+
+            </p>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026
+
+    <span>
+        Mechanical Library SP
+    </span>
+
+    | All Rights Reserved
+
+</footer>
+
+
+
+<!-- ================= FIREBASE ================= -->
+
+<script type="module">
+
+
+    /* ================= FIREBASE IMPORT ================= */
+
+    import {
+        initializeApp
     }
 
-}
+    from
+    "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+
+    import {
+        getAuth,
+        onAuthStateChanged,
+        signOut
+    }
+
+    from
+    "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+
+
+    /* ================= FIREBASE CONFIG ================= */
+
+    const firebaseConfig = {
+
+        apiKey:
+            "AIzaSyAs5uPMjnz801RxS9uYISNnU3IfVjh4tUY",
+
+        authDomain:
+            "mechanical-library-sp.firebaseapp.com",
+
+        projectId:
+            "mechanical-library-sp",
+
+        storageBucket:
+            "mechanical-library-sp.firebasestorage.app",
+
+        messagingSenderId:
+            "593105358258",
+
+        appId:
+            "1:593105358258:web:a0cb1d7a382cc5fd1068ab",
+
+        measurementId:
+            "G-KK5HCBSFX6"
+
+    };
+
+
+
+    /* ================= INITIALIZE ================= */
+
+    const app =
+        initializeApp(firebaseConfig);
+
+
+    const auth =
+        getAuth(app);
+
+
+
+    /* ================= ELEMENTS ================= */
+
+    const loginLink =
+        document.getElementById(
+            "loginLink"
+        );
+
+
+    const signupLink =
+        document.getElementById(
+            "signupLink"
+        );
+
+
+    const heroSignup =
+        document.getElementById(
+            "heroSignup"
+        );
+
+
+    const userArea =
+        document.getElementById(
+            "userArea"
+        );
+
+
+    const userText =
+        document.getElementById(
+            "userText"
+        );
+
+
+    const logoutButton =
+        document.getElementById(
+            "logoutButton"
+        );
+
+
+    const userBox =
+        document.getElementById(
+            "userBox"
+        );
+
+
+    const loggedUser =
+        document.getElementById(
+            "loggedUser"
+        );
+
+
+
+    /* ================= AUTH STATE ================= */
+
+    onAuthStateChanged(
+        auth,
+        function(user) {
+
+
+            if (user) {
+
+                /* USER LOGGED IN */
+
+
+                loginLink.style.display =
+                    "none";
+
+
+                signupLink.style.display =
+                    "none";
+
+
+                heroSignup.style.display =
+                    "none";
+
+
+                userArea.style.display =
+                    "flex";
+
+
+                userBox.style.display =
+                    "block";
+
+
+                let displayName =
+                    user.displayName;
+
+
+                if (
+                    !displayName &&
+                    user.email
+                ) {
+
+                    displayName =
+                        user.email;
+
+                }
+
+
+                if (!displayName) {
+
+                    displayName =
+                        "User";
+
+                }
+
+
+                userText.textContent =
+                    "👤 " +
+                    displayName;
+
+
+                loggedUser.textContent =
+                    displayName;
+
+            }
+
+            else {
+
+                /* USER NOT LOGGED IN */
+
+
+                loginLink.style.display =
+                    "inline-block";
+
+
+                signupLink.style.display =
+                    "inline-block";
+
+
+                heroSignup.style.display =
+                    "inline-block";
+
+
+                userArea.style.display =
+                    "none";
+
+
+                userBox.style.display =
+                    "none";
+
+            }
+
+        }
+    );
+
+
+
+    /* ================= LOGOUT ================= */
+
+    logoutButton.addEventListener(
+        "click",
+        async function() {
+
+
+            try {
+
+                await signOut(auth);
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+
+            catch(error) {
+
+                console.error(
+                    "Logout Error:",
+                    error
+                );
+
+                alert(
+                    "Logout failed. Please try again."
+                );
+
+            }
+
+        }
+    );
+
 
 </script>
 
