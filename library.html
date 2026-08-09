@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mechanical Library | Mechanical Library SP</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #0a0e11;
+            color: #fff;
+        }
+
+        /* ================= HEADER ================= */
+
+        header {
+            height: 72px;
+            background: #11171c;
+            border-bottom: 2px solid #ff6a00;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 34px;
+            color: #ff6a00;
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            line-height: 1.1;
+        }
+
+        .logo span {
+            color: #ff6a00;
+        }
+
+        .back-btn {
+            color: #bbb;
+            text-decoration: none;
+            border: 1px solid #343d43;
+            padding: 9px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            border-color: #ff6a00;
+            color: #ff6a00;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            text-align: center;
+            padding: 55px 20px 40px;
+            background:
+                radial-gradient(circle at center,
+                #202a31 0%,
+                #0a0e11 65%);
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #ff6a00;
+            color: #ff6a00;
+            border-radius: 30px;
+            padding: 7px 16px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+
+        .hero h2 {
+            font-size: clamp(32px, 6vw, 55px);
+            margin-bottom: 12px;
+        }
+
+        .hero h2 span {
+            color: #ff6a00;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #879299;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* ================= SEARCH ================= */
+
+        .search-area {
+            max-width: 800px;
+            margin: 25px auto 0;
+            position: relative;
+        }
+
+        .search-area input {
+            width: 100%;
+            height: 55px;
+            background: #11181d;
+            border: 1px solid #39434a;
+            border-radius: 9px;
+            color: #fff;
+            outline: none;
+            padding: 0 55px 0 20px;
+            font-size: 15px;
+        }
+
+        .search-area input:focus {
+            border-color: #ff6a00;
+            box-shadow: 0 0 0 3px rgba(255,106,0,0.08);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px;
+            top: 17px;
+            color: #ff6a00;
+            font-size: 20px;
+        }
+
+        /* ================= CONTENT ================= */
+
+        .content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 35px 20px 60px;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+        }
+
+        .section-title h3 {
+            font-size: 23px;
+        }
+
+        .section-title span {
+            color: #ff6a00;
+        }
+
+        /* ================= CATEGORY GRID ================= */
+
+        .categories {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 17px;
+        }
+
+        .card {
+            background: #12191e;
+            border: 1px solid #293239;
+            border-radius: 10px;
+            padding: 23px;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6a00;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.35);
+        }
+
+        .card::after {
+            content: "⚙";
+            position: absolute;
+            right: -15px;
+            bottom: -30px;
+            font-size: 100px;
+            color: rgba(255,106,0,0.035);
+        }
+
+        .icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,106,0,0.09);
+            border: 1px solid rgba(255,106,0,0.15);
+            border-radius: 9px;
+            font-size: 26px;
+            margin-bottom: 16px;
+        }
+
+        .card h4 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #78838a;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .count {
+            display: inline-block;
+            margin-top: 14px;
+            color: #ff6a00;
+            font-size: 11px;
+        }
+
+        /* ================= TOPICS ================= */
+
+        .topics-section {
+            margin-top: 45px;
+        }
+
+        .topics {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .topic {
+            background: #11181d;
+            border: 1px solid #293239;
+            border-radius: 8px;
+            padding: 17px;
+            transition: 0.3s;
+        }
+
+        .topic:hover {
+            border-color: #ff6a00;
+        }
+
+        .topic-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 9px;
+        }
+
+        .topic h4 {
+            font-size: 14px;
+        }
+
+        .topic-badge {
+            font-size: 9px;
+            color: #ff6a00;
+            border: 1px solid #ff6a00;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+
+        .topic p {
+            color: #707b82;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* =================
