@@ -1,4 +1,4 @@
-```html
+ ```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +6,8 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Mechanical Library SP</title>
 
@@ -31,10 +29,11 @@
         }
 
 
-        /* ===== HEADER ===== */
+        /* ================= HEADER ================= */
 
         header {
             width: 100%;
+
             padding: 15px 6%;
 
             display: flex;
@@ -55,12 +54,14 @@
         .logo {
             display: flex;
             align-items: center;
+
             gap: 10px;
         }
 
 
         .gear {
             font-size: 38px;
+
             color: #ff6a00;
 
             animation:
@@ -83,6 +84,7 @@
 
         .logo h1 {
             font-size: 21px;
+
             letter-spacing: 1px;
         }
 
@@ -94,7 +96,9 @@
 
         nav {
             display: flex;
-            gap: 25px;
+
+            gap: 15px;
+
             align-items: center;
         }
 
@@ -106,7 +110,7 @@
 
             font-size: 15px;
 
-            transition: 0.3s;
+            transition: .3s;
         }
 
 
@@ -142,10 +146,9 @@
         }
 
 
-        /* ===== USER AREA ===== */
+        /* ================= USER AREA ================= */
 
         #userArea {
-
             display: none;
 
             align-items: center;
@@ -154,48 +157,38 @@
         }
 
 
-        #userName {
+        #userText {
+            color: #aaa;
 
-            color: #fff;
-
-            font-size: 14px;
-
-            white-space: nowrap;
+            font-size: 13px;
         }
 
 
-        #logoutBtn {
-
+        .logout-btn {
             padding: 9px 15px;
 
-            border: 1px solid #ff6a00;
+            border: 1px solid #444;
 
             background: transparent;
 
-            color: #ff6a00;
+            color: #ddd;
 
             border-radius: 6px;
 
             cursor: pointer;
-
-            font-weight: bold;
-
-            transition: 0.3s;
         }
 
 
-        #logoutBtn:hover {
+        .logout-btn:hover {
+            border-color: #ff6a00;
 
-            background: #ff6a00;
-
-            color: white;
+            color: #ff6a00;
         }
 
 
-        /* ===== HERO ===== */
+        /* ================= HERO ================= */
 
         .hero {
-
             min-height: 88vh;
 
             display: flex;
@@ -226,7 +219,6 @@
             position: absolute;
 
             width: 350px;
-
             height: 350px;
 
             border: 25px dashed #252f35;
@@ -234,7 +226,6 @@
             border-radius: 50%;
 
             right: -100px;
-
             top: 100px;
 
             animation:
@@ -249,7 +240,6 @@
             position: absolute;
 
             width: 250px;
-
             height: 250px;
 
             border: 18px dashed #252f35;
@@ -257,7 +247,6 @@
             border-radius: 50%;
 
             left: -100px;
-
             bottom: 50px;
 
             animation:
@@ -309,7 +298,6 @@
 
 
         .hero h2 span {
-
             color: #ff6a00;
         }
 
@@ -358,7 +346,7 @@
 
             font-weight: bold;
 
-            transition: 0.3s;
+            transition: .3s;
         }
 
 
@@ -369,7 +357,7 @@
 
             box-shadow:
                 0 8px 25px
-                rgba(255, 106, 0, 0.35);
+                rgba(255,106,0,.35);
         }
 
 
@@ -385,7 +373,7 @@
 
             text-decoration: none;
 
-            transition: 0.3s;
+            transition: .3s;
         }
 
 
@@ -397,7 +385,7 @@
         }
 
 
-        /* ===== FEATURES ===== */
+        /* ================= FEATURES ================= */
 
         .features {
 
@@ -451,7 +439,15 @@
 
             border: 1px solid #252e34;
 
-            transition: 0.3s;
+            transition: .3s;
+
+            text-decoration: none;
+
+            color: white;
+
+            display: block;
+
+            cursor: pointer;
         }
 
 
@@ -461,6 +457,10 @@
                 translateY(-7px);
 
             border-color: #ff6a00;
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,106,0,.10);
         }
 
 
@@ -490,7 +490,45 @@
         }
 
 
-        /* ===== FOOTER ===== */
+        /* ================= USER PANEL ================= */
+
+        .user-panel {
+
+            max-width: 1150px;
+
+            margin: 0 auto;
+
+            padding: 25px 6% 0;
+        }
+
+
+        .user-box {
+
+            display: none;
+
+            background: #151c21;
+
+            border: 1px solid #293239;
+
+            border-left: 3px solid #ff6a00;
+
+            border-radius: 10px;
+
+            padding: 18px 20px;
+        }
+
+
+        .user-box strong {
+            color: #ff6a00;
+        }
+
+
+        #loggedUser {
+            color: #aaa;
+        }
+
+
+        /* ================= FOOTER ================= */
 
         footer {
 
@@ -510,74 +548,67 @@
 
 
         footer span {
-
             color: #ff6a00;
         }
 
 
-        /* ===== MOBILE ===== */
+        /* ================= MOBILE ================= */
 
         @media (max-width: 700px) {
 
             header {
-
                 padding: 13px 5%;
             }
 
 
             nav {
-
-                gap: 10px;
+                gap: 8px;
             }
 
 
             nav a:not(.login-btn):not(.signup-btn) {
-
                 display: none;
             }
 
 
             .logo h1 {
-
                 font-size: 16px;
             }
 
 
             .gear {
-
                 font-size: 30px;
             }
 
 
-            .hero {
+            #userText {
+                display: none;
+            }
 
+
+            .logout-btn {
+                padding: 8px 10px;
+            }
+
+
+            .hero {
                 min-height: 80vh;
             }
 
 
             .hero p {
-
                 font-size: 15px;
             }
 
 
             .hero h2 {
-
                 font-size: 42px;
             }
 
 
-            #userName {
-
-                font-size: 12px;
-            }
-
-
-            #logoutBtn {
-
-                padding: 7px 10px;
-
-                font-size: 12px;
+            .user-panel {
+                padding-left: 5%;
+                padding-right: 5%;
             }
 
         }
@@ -612,6 +643,7 @@
     </div>
 
 
+
     <nav>
 
 
@@ -625,12 +657,12 @@
         </a>
 
 
-        <a href="#tools">
+        <a href="#library">
             Tools
         </a>
 
 
-        <!-- Login -->
+        <!-- LOGIN -->
 
         <a
             href="login.html"
@@ -641,7 +673,7 @@
         </a>
 
 
-        <!-- Sign Up -->
+        <!-- SIGN UP -->
 
         <a
             href="signup.html"
@@ -652,16 +684,18 @@
         </a>
 
 
-        <!-- User Area -->
+        <!-- USER AREA -->
 
         <div id="userArea">
 
-            <span id="userName">
-                👤 User
+            <span id="userText">
+                Logged in
             </span>
 
-
-            <button id="logoutBtn">
+            <button
+                class="logout-btn"
+                id="logoutButton"
+            >
                 Logout
             </button>
 
@@ -671,6 +705,27 @@
     </nav>
 
 </header>
+
+
+
+<!-- ================= USER PANEL ================= -->
+
+<div class="user-panel">
+
+    <div
+        class="user-box"
+        id="userBox"
+    >
+
+        👤 Welcome back!
+
+        <strong id="loggedUser">
+            User
+        </strong>
+
+    </div>
+
+</div>
 
 
 
@@ -684,15 +739,16 @@
 
         <div class="tag">
 
-            ⚙ MECHANICAL
-            KNOWLEDGE HUB
+            ⚙ MECHANICAL KNOWLEDGE HUB
 
         </div>
 
 
-        <h2 id="heroTitle">
 
-            Learn. Repair.<br>
+        <h2>
+
+            Learn. Repair.
+            <br>
 
             <span>
                 Master Mechanics.
@@ -701,18 +757,17 @@
         </h2>
 
 
+
         <p>
 
-            Welcome to Mechanical Library SP
-            — your digital workshop
-            for automobile mechanics,
-            engine knowledge,
-            diagnostic codes,
-            spare parts information,
-            wiring diagrams and
-            technical notes.
+            Welcome to Mechanical Library SP —
+            your digital workshop for automobile
+            mechanics, engine knowledge, diagnostic
+            codes, spare parts information, wiring
+            diagrams and technical notes.
 
         </p>
+
 
 
         <div class="hero-buttons">
@@ -721,7 +776,7 @@
             <a
                 href="signup.html"
                 class="main-btn"
-                id="createAccountBtn"
+                id="heroSignup"
             >
 
                 🚀 Create Account
@@ -774,7 +829,12 @@
     <div class="cards">
 
 
-        <div class="card">
+        <!-- ENGINE -->
+
+        <a
+            href="#"
+            class="card"
+        >
 
             <div class="card-icon">
                 🔧
@@ -795,11 +855,16 @@
 
             </p>
 
-        </div>
+        </a>
 
 
 
-        <div class="card">
+        <!-- VEHICLE -->
+
+        <a
+            href="#"
+            class="card"
+        >
 
             <div class="card-icon">
                 🚗
@@ -815,16 +880,21 @@
 
                 Complete information
                 about vehicle systems,
-                sensors, electrical
-                and mechanical components.
+                sensors, electrical and
+                mechanical components.
 
             </p>
 
-        </div>
+        </a>
 
 
 
-        <div class="card">
+        <!-- TOOLS -->
+
+        <a
+            href="#"
+            class="card"
+        >
 
             <div class="card-icon">
                 🧰
@@ -845,11 +915,16 @@
 
             </p>
 
-        </div>
+        </a>
 
 
 
-        <div class="card">
+        <!-- ELECTRICAL -->
+
+        <a
+            href="#"
+            class="card"
+        >
 
             <div class="card-icon">
                 ⚡
@@ -863,18 +938,23 @@
 
             <p>
 
-                AC/DC wiring,
-                sensors, circuits,
-                batteries, alternator
-                and starter system knowledge.
+                AC/DC wiring, sensors,
+                circuits, batteries,
+                alternator and starter
+                system knowledge.
 
             </p>
 
-        </div>
+        </a>
 
 
 
-        <div class="card">
+        <!-- OBD ERROR CODES -->
+
+        <a
+            href="obd-codes.html"
+            class="card"
+        >
 
             <div class="card-icon">
                 📟
@@ -894,11 +974,16 @@
 
             </p>
 
-        </div>
+        </a>
 
 
 
-        <div class="card">
+        <!-- TECHNICAL NOTES -->
+
+        <a
+            href="#"
+            class="card"
+        >
 
             <div class="card-icon">
                 📚
@@ -919,7 +1004,7 @@
 
             </p>
 
-        </div>
+        </a>
 
 
     </div>
@@ -949,43 +1034,28 @@
 <script type="module">
 
 
+    /* ================= FIREBASE IMPORT ================= */
+
     import {
-
         initializeApp
+    }
 
-    } from
+    from
     "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
     import {
-
         getAuth,
-
         onAuthStateChanged,
-
         signOut
+    }
 
-    } from
+    from
     "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
-    import {
 
-        getFirestore,
-
-        doc,
-
-        getDoc
-
-    } from
-    "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
-
-
-
-    /* ============================
-       FIREBASE CONFIG
-    ============================ */
-
+    /* ================= FIREBASE CONFIG ================= */
 
     const firebaseConfig = {
 
@@ -1014,30 +1084,18 @@
 
 
 
-    /* ============================
-       FIREBASE START
-    ============================ */
-
+    /* ================= INITIALIZE ================= */
 
     const app =
-        initializeApp(
-            firebaseConfig
-        );
+        initializeApp(firebaseConfig);
 
 
     const auth =
         getAuth(app);
 
 
-    const db =
-        getFirestore(app);
 
-
-
-    /* ============================
-       HTML ELEMENTS
-    ============================ */
-
+    /* ================= ELEMENTS ================= */
 
     const loginLink =
         document.getElementById(
@@ -1051,9 +1109,9 @@
         );
 
 
-    const createAccountBtn =
+    const heroSignup =
         document.getElementById(
-            "createAccountBtn"
+            "heroSignup"
         );
 
 
@@ -1063,211 +1121,158 @@
         );
 
 
-    const userName =
+    const userText =
         document.getElementById(
-            "userName"
+            "userText"
         );
 
 
-    const logoutBtn =
+    const logoutButton =
         document.getElementById(
-            "logoutBtn"
+            "logoutButton"
         );
 
 
-    const heroTitle =
+    const userBox =
         document.getElementById(
-            "heroTitle"
+            "userBox"
+        );
+
+
+    const loggedUser =
+        document.getElementById(
+            "loggedUser"
         );
 
 
 
-    /* ============================
-       LOGIN STATUS CHECK
-    ============================ */
-
+    /* ================= AUTH STATE ================= */
 
     onAuthStateChanged(
-
         auth,
-
-        async function(user) {
-
-
-            /* ========================
-               USER NOT LOGGED IN
-            ======================== */
+        function(user) {
 
 
-            if (!user) {
+            if (user) {
 
-                // Login page पर भेजना
-
-                window.location.href =
-                    "login.html";
-
-                return;
-            }
+                /* USER LOGGED IN */
 
 
-
-            /* ========================
-               USER LOGGED IN
-            ======================== */
+                loginLink.style.display =
+                    "none";
 
 
-            try {
+                signupLink.style.display =
+                    "none";
 
 
-                // Firestore में
-                // users collection
-
-                const userRef =
-                    doc(
-                        db,
-                        "users",
-                        user.uid
-                    );
+                heroSignup.style.display =
+                    "none";
 
 
-                const userSnap =
-                    await getDoc(
-                        userRef
-                    );
+                userArea.style.display =
+                    "flex";
 
 
-                let name =
-                    "User";
+                userBox.style.display =
+                    "block";
+
+
+                let displayName =
+                    user.displayName;
 
 
                 if (
-                    userSnap.exists()
+                    !displayName &&
+                    user.email
                 ) {
 
-                    name =
-                        userSnap.data().name
-                        || "User";
+                    displayName =
+                        user.email;
+
                 }
 
 
+                if (!displayName) {
 
-                /* ====================
-                   SHOW USER
-                ==================== */
+                    displayName =
+                        "User";
 
-
-                userName.textContent =
-                    "👤 " + name;
+                }
 
 
-                userArea.style.display =
-                    "flex";
+                userText.textContent =
+                    "👤 " +
+                    displayName;
 
 
+                loggedUser.textContent =
+                    displayName;
 
-                /* ====================
-                   HIDE LOGIN BUTTONS
-                ==================== */
+            }
 
+            else {
 
-                loginLink.style.display =
-                    "none";
-
-
-                signupLink.style.display =
-                    "none";
-
-
-                createAccountBtn.style.display =
-                    "none";
-
-
-
-                /* ====================
-                   WELCOME MESSAGE
-                ==================== */
-
-
-                heroTitle.innerHTML = `
-
-                    Welcome,
-                    <span>
-                        ${name}
-                    </span>
-
-                `;
-
-
-
-            } catch (error) {
-
-
-                console.error(
-                    "Firestore Error:",
-                    error
-                );
-
-
-                // अगर Firestore data
-                // पढ़ने में problem हो
-
-                userName.textContent =
-                    "👤 User";
-
-
-                userArea.style.display =
-                    "flex";
+                /* USER NOT LOGGED IN */
 
 
                 loginLink.style.display =
-                    "none";
+                    "inline-block";
 
 
                 signupLink.style.display =
+                    "inline-block";
+
+
+                heroSignup.style.display =
+                    "inline-block";
+
+
+                userArea.style.display =
+                    "none";
+
+
+                userBox.style.display =
                     "none";
 
             }
 
         }
-
     );
 
 
 
-    /* ============================
-       LOGOUT
-    ============================ */
+    /* ================= LOGOUT ================= */
 
-
-    logoutBtn.addEventListener(
-
+    logoutButton.addEventListener(
         "click",
-
         async function() {
 
 
             try {
 
-
                 await signOut(auth);
 
 
                 window.location.href =
-                    "login.html";
+                    "index.html";
 
+            }
 
-            } catch (error) {
-
+            catch(error) {
 
                 console.error(
                     "Logout Error:",
                     error
                 );
 
+                alert(
+                    "Logout failed. Please try again."
+                );
+
             }
 
         }
-
     );
 
 
