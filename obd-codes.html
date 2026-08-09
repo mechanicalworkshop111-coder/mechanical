@@ -1,723 +1,986 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>OBD Diagnostic Codes | Mechanical Library SP</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        body {
-            background: #090d10;
-            color: #fff;
-        }
-
-        /* ================= HEADER ================= */
-
-        header {
-            height: 72px;
-            background: #11171c;
-            border-bottom: 2px solid #ff6a00;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .gear {
-            font-size: 34px;
-            color: #ff6a00;
-        }
-
-        .logo h1 {
-            font-size: 17px;
-            line-height: 1.1;
-        }
-
-        .logo span {
-            color: #ff6a00;
-        }
-
-        .back {
-            text-decoration: none;
-            color: #bbb;
-            border: 1px solid #343d43;
-            padding: 9px 15px;
-            border-radius: 6px;
-            font-size: 13px;
-        }
-
-        .back:hover {
-            color: #ff6a00;
-            border-color: #ff6a00;
-        }
-
-        /* ================= HERO ================= */
-
-        .hero {
-            text-align: center;
-            padding: 50px 20px 40px;
-            background:
-                radial-gradient(
-                    circle at center,
-                    #202a31 0%,
-                    #090d10 65%
-                );
-        }
-
-        .badge {
-            display: inline-block;
-            color: #ff6a00;
-            border: 1px solid #ff6a00;
-            padding: 7px 15px;
-            border-radius: 20px;
-            font-size: 11px;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
-        }
-
-        .hero h2 {
-            font-size: clamp(30px, 6vw, 52px);
-            margin-bottom: 12px;
-        }
-
-        .hero h2 span {
-            color: #ff6a00;
-        }
-
-        .hero p {
-            max-width: 720px;
-            margin: auto;
-            color: #808b92;
-            font-size: 14px;
-            line-height: 1.7;
-        }
-
-        /* ================= SEARCH ================= */
-
-        .search-box {
-            max-width: 850px;
-            margin: 25px auto 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        .search-box input {
-            flex: 1;
-            height: 53px;
-            background: #11181d;
-            border: 1px solid #3a444a;
-            border-radius: 8px;
-            outline: none;
-            color: white;
-            padding: 0 18px;
-            font-size: 14px;
-        }
-
-        .search-box input:focus {
-            border-color: #ff6a00;
-            box-shadow: 0 0 0 3px rgba(255,106,0,.08);
-        }
-
-        .search-btn {
-            height: 53px;
-            padding: 0 25px;
-            border: none;
-            border-radius: 8px;
-            background: #ff6a00;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .search-btn:hover {
-            background: #ff7c20;
-        }
-
-        /* ================= FILTER ================= */
-
-        .filters {
-            max-width: 850px;
-            margin: 12px auto 0;
-            display: flex;
-            gap: 10px;
-        }
-
-        .filters select {
-            height: 40px;
-            flex: 1;
-            background: #11181d;
-            border: 1px solid #303a40;
-            color: #aaa;
-            border-radius: 6px;
-            padding: 0 10px;
-            outline: none;
-        }
-
-        /* ================= CONTENT ================= */
-
-        .container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 35px 20px 60px;
-        }
-
-        .section-title {
-            margin-bottom: 18px;
-        }
-
-        .section-title h3 {
-            font-size: 22px;
-        }
-
-        .section-title span {
-            color: #ff6a00;
-        }
-
-        /* ================= CODE GRID ================= */
-
-        .codes {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(290px, 1fr));
-            gap: 17px;
-        }
-
-        .code-card {
-            background: #12191e;
-            border: 1px solid #293239;
-            border-radius: 10px;
-            padding: 20px;
-            transition: .3s;
-        }
-
-        .code-card:hover {
-            border-color: #ff6a00;
-            transform: translateY(-3px);
-        }
-
-        .code-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .code-number {
-            color: #ff6a00;
-            font-size: 22px;
-            font-weight: bold;
-        }
-
-        .system {
-            font-size: 9px;
-            border: 1px solid #475159;
-            color: #8c969c;
-            padding: 5px 7px;
-            border-radius: 4px;
-        }
-
-        .code-card h4 {
-            font-size: 15px;
-            margin-bottom: 8px;
-        }
-
-        .code-card p {
-            color: #7c878e;
-            font-size: 12px;
-            line-height: 1.6;
-        }
-
-        .details {
-            margin-top: 15px;
-            padding-top: 13px;
-            border-top: 1px solid #293239;
-        }
-
-        .detail {
-            margin-bottom: 9px;
-            font-size: 11px;
-            line-height: 1.5;
-            color: #8d979d;
-        }
-
-        .detail strong {
-            color: #c6cdd1;
-        }
-
-        /* ================= NO RESULT ================= */
-
-        #noResult {
-            display: none;
-            text-align: center;
-            padding: 50px 20px;
-            color: #737e85;
-        }
-
-        #noResult .warning {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        #noResult h3 {
-            color: #ff6a00;
-            margin-bottom: 7px;
-        }
-
-        /* ================= INFO ================= */
-
-        .info-box {
-            margin-top: 35px;
-            background: #11181d;
-            border: 1px solid #293239;
-            border-left: 3px solid #ff6a00;
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        .info-box h3 {
-            margin-bottom: 10px;
-            font-size: 17px;
-        }
-
-        .info-box p {
-            color: #7e898f;
-            font-size: 12px;
-            line-height: 1.7;
-        }
-
-        /* ================= FOOTER ================= */
-
-        footer {
-            background: #070a0c;
-            border-top: 1px solid #252d32;
-            padding: 25px;
-            text-align: center;
-            color: #68737a;
-            font-size: 12px;
-        }
-
-        footer span {
-            color: #ff6a00;
-        }
-
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 600px) {
-
-            header {
-                padding: 0 15px;
-            }
-
-            .logo h1 {
-                font-size: 14px;
-            }
-
-            .gear {
-                font-size: 28px;
-            }
-
-            .back {
-                padding: 7px 10px;
-            }
-
-            .hero {
-                padding-top: 40px;
-            }
-
-            .hero h2 {
-                font-size: 34px;
-            }
-
-            .search-box {
-                flex-direction: column;
-            }
-
-            .search-btn {
-                width: 100%;
-            }
-
-            .filters {
-                flex-direction: column;
-            }
-
-            .container {
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-        }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OBD Diagnostic Codes | Mechanical Library SP</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #090d10;
+    color: #fff;
+}
+
+/* HEADER */
+
+header {
+    height: 72px;
+    background: #11171c;
+    border-bottom: 2px solid #ff6a00;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gear {
+    font-size: 34px;
+    color: #ff6a00;
+}
+
+.logo h1 {
+    font-size: 17px;
+    line-height: 1.1;
+}
+
+.logo span {
+    color: #ff6a00;
+}
+
+.back {
+    text-decoration: none;
+    color: #bbb;
+    border: 1px solid #343d43;
+    padding: 9px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.back:hover {
+    color: #ff6a00;
+    border-color: #ff6a00;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 50px 20px 40px;
+    background:
+        radial-gradient(
+            circle at center,
+            #202a31 0%,
+            #090d10 65%
+        );
+}
+
+.badge {
+    display: inline-block;
+    color: #ff6a00;
+    border: 1px solid #ff6a00;
+    padding: 7px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.hero h2 {
+    font-size: clamp(30px, 6vw, 52px);
+    margin-bottom: 12px;
+}
+
+.hero h2 span {
+    color: #ff6a00;
+}
+
+.hero p {
+    max-width: 720px;
+    margin: auto;
+    color: #808b92;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* SEARCH */
+
+.search-box {
+    max-width: 850px;
+    margin: 25px auto 0;
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    height: 53px;
+    background: #11181d;
+    border: 1px solid #3a444a;
+    border-radius: 8px;
+    outline: none;
+    color: white;
+    padding: 0 18px;
+    font-size: 14px;
+}
+
+.search-box input:focus {
+    border-color: #ff6a00;
+    box-shadow: 0 0 0 3px rgba(255,106,0,.08);
+}
+
+.search-btn {
+    height: 53px;
+    padding: 0 25px;
+    border: none;
+    border-radius: 8px;
+    background: #ff6a00;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background: #ff7c20;
+}
+
+/* FILTER */
+
+.filters {
+    max-width: 850px;
+    margin: 12px auto 0;
+    display: flex;
+    gap: 10px;
+}
+
+.filters select {
+    height: 40px;
+    flex: 1;
+    background: #11181d;
+    border: 1px solid #303a40;
+    color: #aaa;
+    border-radius: 6px;
+    padding: 0 10px;
+    outline: none;
+}
+
+/* CONTENT */
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 35px 20px 60px;
+}
+
+.section-title {
+    margin-bottom: 18px;
+}
+
+.section-title h3 {
+    font-size: 22px;
+}
+
+.section-title span {
+    color: #ff6a00;
+}
+
+.codes {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(290px, 1fr));
+    gap: 17px;
+}
+
+/* CARD */
+
+.code-card {
+    background: #12191e;
+    border: 1px solid #293239;
+    border-radius: 10px;
+    padding: 20px;
+    transition: .3s;
+}
+
+.code-card:hover {
+    border-color: #ff6a00;
+    transform: translateY(-3px);
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.code-number {
+    color: #ff6a00;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.system {
+    font-size: 9px;
+    border: 1px solid #475159;
+    color: #8c969c;
+    padding: 5px 7px;
+    border-radius: 4px;
+}
+
+.code-card h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.code-card p {
+    color: #7c878e;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.details {
+    margin-top: 15px;
+    padding-top: 13px;
+    border-top: 1px solid #293239;
+}
+
+.detail {
+    margin-bottom: 9px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #8d979d;
+}
+
+.detail strong {
+    color: #c6cdd1;
+}
+
+/* LOADING */
+
+#loading {
+    text-align: center;
+    padding: 50px;
+    color: #ff6a00;
+}
+
+/* NO RESULT */
+
+#noResult {
+    display: none;
+    text-align: center;
+    padding: 50px 20px;
+    color: #737e85;
+}
+
+#noResult .warning {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#noResult h3 {
+    color: #ff6a00;
+    margin-bottom: 7px;
+}
+
+/* INFO */
+
+.info-box {
+    margin-top: 35px;
+    background: #11181d;
+    border: 1px solid #293239;
+    border-left: 3px solid #ff6a00;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.info-box h3 {
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.info-box p {
+    color: #7e898f;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+footer {
+    background: #070a0c;
+    border-top: 1px solid #252d32;
+    padding: 25px;
+    text-align: center;
+    color: #68737a;
+    font-size: 12px;
+}
+
+footer span {
+    color: #ff6a00;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 0 15px;
+    }
+
+    .logo h1 {
+        font-size: 14px;
+    }
+
+    .gear {
+        font-size: 28px;
+    }
+
+    .back {
+        padding: 7px 10px;
+    }
+
+    .hero {
+        padding-top: 40px;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
-    <header>
+<header>
 
-        <div class="logo">
+    <div class="logo">
 
-            <div class="gear">⚙</div>
+        <div class="gear">⚙</div>
 
-            <h1>
-                MECHANICAL<br>
-                <span>LIBRARY SP</span>
-            </h1>
+        <h1>
+            MECHANICAL<br>
+            <span>LIBRARY SP</span>
+        </h1>
 
+    </div>
+
+    <a href="index.html" class="back">
+        ← Dashboard
+    </a>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="badge">
+        📟 VEHICLE DIAGNOSTIC CENTER
+    </div>
+
+    <h2>
+        OBD <span>Code Library</span>
+    </h2>
+
+    <p>
+        Search diagnostic trouble codes and find their
+        meaning, possible causes and recommended checking steps.
+    </p>
+
+
+    <div class="search-box">
+
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="Search code e.g. P0487 or EGR, sensor..."
+        >
+
+        <button
+            class="search-btn"
+            id="searchButton"
+        >
+            🔍 SEARCH
+        </button>
+
+    </div>
+
+
+    <div class="filters">
+
+        <select id="systemFilter">
+
+            <option value="all">
+                All Systems
+            </option>
+
+            <option value="engine">
+                Engine
+            </option>
+
+            <option value="fuel">
+                Fuel System
+            </option>
+
+            <option value="electrical">
+                Electrical
+            </option>
+
+            <option value="emission">
+                Emission
+            </option>
+
+            <option value="turbo">
+                Turbo / Air
+            </option>
+
+        </select>
+
+
+        <select id="typeFilter">
+
+            <option value="all">
+                All Code Types
+            </option>
+
+            <option value="p">
+                P - Powertrain
+            </option>
+
+            <option value="b">
+                B - Body
+            </option>
+
+            <option value="c">
+                C - Chassis
+            </option>
+
+            <option value="u">
+                U - Network
+            </option>
+
+        </select>
+
+    </div>
+
+</section>
+
+
+<!-- CONTENT -->
+
+<main class="container">
+
+    <div class="section-title">
+
+        <h3>
+            Diagnostic <span>Codes</span>
+        </h3>
+
+    </div>
+
+
+    <div id="loading">
+        Loading OBD codes...
+    </div>
+
+
+    <div class="codes" id="codeList"></div>
+
+
+    <div id="noResult">
+
+        <div class="warning">
+            ⚠️
         </div>
 
-        <a href="dashboard.html" class="back">
-            ← Dashboard
-        </a>
-
-    </header>
-
-
-    <!-- ================= HERO ================= -->
-
-    <section class="hero">
-
-        <div class="badge">
-            📟 VEHICLE DIAGNOSTIC CENTER
-        </div>
-
-        <h2>
-            OBD <span>Code Library</span>
-        </h2>
+        <h3>
+            No Code Found
+        </h3>
 
         <p>
-            Search diagnostic trouble codes and find their
-            meaning, possible causes and recommended checking steps.
+            Try another OBD code or search word.
         </p>
 
-
-        <!-- SEARCH -->
-
-        <div class="search-box">
-
-            <input
-                type="search"
-                id="searchInput"
-                placeholder="Search code e.g. P0487 or sensor, EGR, turbo..."
-            >
-
-            <button
-                class="search-btn"
-                onclick="searchCodes()"
-            >
-                🔍 SEARCH
-            </button>
-
-        </div>
+    </div>
 
 
-        <!-- FILTER -->
+    <div class="info-box">
 
-        <div class="filters">
+        <h3>
+            ⚠️ Important
+        </h3>
 
-            <select id="systemFilter" onchange="searchCodes()">
+        <p>
+            OBD codes can have different causes depending
+            on the vehicle manufacturer and engine system.
+            Always verify the code with the vehicle service
+            information before carrying out repairs.
+        </p>
 
-                <option value="all">
-                    All Systems
-                </option>
+    </div>
 
-                <option value="engine">
-                    Engine
-                </option>
-
-                <option value="fuel">
-                    Fuel System
-                </option>
-
-                <option value="electrical">
-                    Electrical
-                </option>
-
-                <option value="emission">
-                    Emission
-                </option>
-
-                <option value="turbo">
-                    Turbo / Air
-                </option>
-
-            </select>
+</main>
 
 
-            <select id="typeFilter" onchange="searchCodes()">
+<!-- FOOTER -->
 
-                <option value="all">
-                    All Code Types
-                </option>
+<footer>
 
-                <option value="p">
-                    P - Powertrain
-                </option>
+    © 2026
+    <span>Mechanical Library SP</span>
+    | All Rights Reserved
 
-                <option value="b">
-                    B - Body
-                </option>
-
-                <option value="c">
-                    C - Chassis
-                </option>
-
-                <option value="u">
-                    U - Network
-                </option>
-
-            </select>
-
-        </div>
-
-    </section>
+</footer>
 
 
-    <!-- ================= CONTENT ================= -->
+<!-- FIREBASE -->
 
-    <main class="container">
+<script type="module">
 
-        <div class="section-title">
-
-            <h3>
-                Diagnostic <span>Codes</span>
-            </h3>
-
-        </div>
+import {
+    initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
 
-        <div class="codes" id="codeList">
+import {
+    getFirestore,
+    collection,
+    getDocs
+}
+from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-            <!-- P0487 -->
+/* FIREBASE CONFIG */
 
-            <div
-                class="code-card"
-                data-code="P0487"
-                data-system="emission"
-                data-type="p"
-                data-search="egr throttle control circuit A"
-            >
+const firebaseConfig = {
+
+    apiKey:
+        "AIzaSyAs5uPMjnz801RxS9uYISNnU3IfVjh4tUY",
+
+    authDomain:
+        "mechanical-library-sp.firebaseapp.com",
+
+    projectId:
+        "mechanical-library-sp",
+
+    storageBucket:
+        "mechanical-library-sp.firebasestorage.app",
+
+    messagingSenderId:
+        "593105358258",
+
+    appId:
+        "1:593105358258:web:a0cb1d7a382cc5fd1068ab",
+
+    measurementId:
+        "G-KK5HCBSFX6"
+
+};
+
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const db =
+    getFirestore(app);
+
+
+/* ELEMENTS */
+
+const codeList =
+    document.getElementById("codeList");
+
+const loading =
+    document.getElementById("loading");
+
+const noResult =
+    document.getElementById("noResult");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const searchButton =
+    document.getElementById("searchButton");
+
+const systemFilter =
+    document.getElementById("systemFilter");
+
+const typeFilter =
+    document.getElementById("typeFilter");
+
+
+/* ALL CODES */
+
+let allCodes = [];
+
+
+/* LOAD FIREBASE DATA */
+
+async function loadCodes() {
+
+    try {
+
+        const snapshot =
+            await getDocs(
+                collection(db, "obd_codes")
+            );
+
+
+        allCodes = [];
+
+
+        snapshot.forEach(
+            function(document) {
+
+                const data =
+                    document.data();
+
+                allCodes.push(data);
+
+            }
+        );
+
+
+        loading.style.display =
+            "none";
+
+
+        displayCodes(allCodes);
+
+
+    } catch (error) {
+
+        console.error(
+            "Firebase error:",
+            error
+        );
+
+
+        loading.style.color =
+            "#ff4d4d";
+
+        loading.textContent =
+            "Unable to load OBD codes.";
+
+    }
+
+}
+
+
+/* DISPLAY */
+
+function displayCodes(codes) {
+
+    codeList.innerHTML = "";
+
+
+    if (codes.length === 0) {
+
+        noResult.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    noResult.style.display =
+        "none";
+
+
+    codes.forEach(
+        function(data) {
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "code-card";
+
+
+            const system =
+                data.system || "other";
+
+
+            const type =
+                data.type || "";
+
+
+            card.innerHTML = `
 
                 <div class="code-header">
 
                     <div class="code-number">
-                        P0487
+                        ${escapeHTML(data.code || "")}
                     </div>
 
                     <div class="system">
-                        EMISSION
+                        ${escapeHTML(system.toUpperCase())}
                     </div>
 
                 </div>
 
+
                 <h4>
-                    EGR Throttle Control Circuit "A"
+                    ${escapeHTML(data.title || "No title")}
                 </h4>
 
+
                 <p>
-                    Engine control system has detected
-                    a problem related to the EGR throttle
-                    control circuit.
+                    ${escapeHTML(
+                        data.symptoms ||
+                        "No symptoms information available."
+                    )}
                 </p>
+
 
                 <div class="details">
 
                     <div class="detail">
-                        <strong>Possible Causes:</strong>
-                        Wiring fault, connector problem,
-                        actuator fault or control circuit issue.
+
+                        <strong>
+                            Possible Causes:
+                        </strong>
+
+                        ${escapeHTML(
+                            data.causes ||
+                            "Information not available."
+                        )}
+
                     </div>
 
+
                     <div class="detail">
-                        <strong>Check:</strong>
-                        Inspect wiring, connectors,
-                        actuator operation and related circuits.
+
+                        <strong>
+                            Check / Solution:
+                        </strong>
+
+                        ${escapeHTML(
+                            data.solution ||
+                            "Information not available."
+                        )}
+
                     </div>
 
                 </div>
 
-            </div>
+            `;
 
 
-            <!-- P0036 -->
-
-            <div
-                class="code-card"
-                data-code="P0036"
-                data-system="electrical"
-                data-type="p"
-                data-search="oxygen sensor heater bank 1 sensor 2"
-            >
-
-                <div class="code-header">
-
-                    <div class="code-number">
-                        P0036
-                    </div>
-
-                    <div class="system">
-                        ELECTRICAL
-                    </div>
-
-                </div>
-
-                <h4>
-                    HO2S Heater Control Circuit
-                </h4>
-
-                <p>
-                    The oxygen sensor heater control
-                    circuit has detected a fault.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        <strong>Possible Causes:</strong>
-                        Open/short wiring, damaged connector,
-                        fuse or sensor heater problem.
-                    </div>
-
-                    <div class="detail">
-                        <strong>Check:</strong>
-                        Check power supply, ground,
-                        wiring and heater resistance.
-                    </div>
-
-                </div>
-
-            </div>
+            card.dataset.code =
+                (data.code || "")
+                .toLowerCase();
 
 
-            <!-- P0100 -->
-
-            <div
-                class="code-card"
-                data-code="P0100"
-                data-system="engine"
-                data-type="p"
-                data-search="mass air flow MAF sensor circuit"
-            >
-
-                <div class="code-header">
-
-                    <div class="code-number">
-                        P0100
-                    </div>
-
-                    <div class="system">
-                        ENGINE
-                    </div>
-
-                </div>
-
-                <h4>
-                    Mass Air Flow Sensor Circuit
-                </h4>
-
-                <p>
-                    A fault has been detected in the
-                    MAF sensor circuit.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        <strong>Possible Causes:</strong>
-                        MAF sensor, wiring, connector,
-                        intake leak or power supply issue.
-                    </div>
-
-                    <div class="detail">
-                        <strong>Check:</strong>
-                        Inspect air filter, intake pipe,
-                        connector and MAF readings.
-                    </div>
-
-                </div>
-
-            </div>
+            card.dataset.system =
+                system.toLowerCase();
 
 
-            <!-- P0115 -->
-
-            <div
-                class="code-card"
-                data-code="P0115"
-                data-system="engine"
-                data-type="p"
-                data-search="engine coolant temperature ECT sensor"
-            >
-
-                <div class="code-header">
-
-                    <div class="code-number">
-                        P0115
-                    </div>
-
-                    <div class="system">
-                        ENGINE
-                    </div>
-
-                </div>
-
-                <h4>
-                    Engine Coolant Temperature Sensor
-                </h4>
-
-                <p>
-                    The engine coolant temperature
-                    sensor circuit has a fault.
-                </p>
-
-                <div class="details">
-
-                    <div class="detail">
-                        <strong>Possible Causes:</strong>
-                        ECT sensor, wiring, connector
-                        or reference voltage problem.
-                    </div>
-
-                    <div class="detail">
-                        <strong>Check:</strong>
-                        Inspect sensor wiring and compare
-                        live temperature data.
-                    </div>
-
-                </div>
-
-            </div>
+            card.dataset.type =
+                type.toLowerCase();
 
 
-            <!-- P0201 -->
+            card.dataset.search = (
 
-            <div
-                class="code-card"
-                data-code="P0201"
-                data-system="fuel"
-                data-type="p"
-                data-search="injector cylinder 1 injector circuit"
-            >
+                (data.code || "") +
+                " " +
+                (data.title || "") +
+                " " +
+                (data.symptoms || "") +
+                " " +
+                (data.causes || "") +
+                " " +
+                (data.solution || "")
 
-                <div class="code-header">
+            ).toLowerCase();
 
-                    <div class="code-number">
-                        P0201
+
+            codeList.appendChild(card);
+
+        }
+    );
+
+}
+
+
+/* SEARCH */
+
+function searchCodes() {
+
+    const search =
+        searchInput.value
+        .trim()
+        .toLowerCase();
+
+
+    const selectedSystem =
+        systemFilter.value
+        .toLowerCase();
+
+
+    const selectedType =
+        typeFilter.value
+        .toLowerCase();
+
+
+    const filtered =
+        allCodes.filter(
+            function(data) {
+
+                const code =
+                    (data.code || "")
+                    .toLowerCase();
+
+
+                const title =
+                    (data.title || "")
+                    .toLowerCase();
+
+
+                const symptoms =
+                    (data.symptoms || "")
+                    .toLowerCase();
+
+
+                const causes =
+                    (data.causes || "")
+                    .toLowerCase();
+
+
+                const solution =
+                    (data.solution || "")
+                    .toLowerCase();
+
+
+                const system =
+                    (data.system || "")
+                    .toLowerCase();
+
+
+                const type =
+                    (data.type || "")
+                    .toLowerCase();
+
+
+                const searchText =
+                    code + " " +
+                    title + " " +
+                    symptoms + " " +
+                    causes + " " +
+                    solution;
+
+
+                const matchesSearch =
+                    search === "" ||
+                    searchText.includes(search);
+
+
+                const matchesSystem =
+                    selectedSystem === "all" ||
+                    system === selectedSystem;
+
+
+                const matchesType =
+                    selectedType === "all" ||
+                    type === selectedType;
+
+
+                return (
+                    matchesSearch &&
+                    matchesSystem &&
+                    matchesType
+                );
+
+            }
+        );
+
+
+    displayCodes(filtered);
+
+}
+
+
+/* HTML SAFETY */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* EVENTS */
+
+searchButton.addEventListener(
+    "click",
+    searchCodes
+);
+
+
+searchInput.addEventListener(
+    "input",
+    searchCodes
+);
+
+
+systemFilter.addEventListener(
+    "change",
+    searchCodes
+);
+
+
+typeFilter.addEventListener(
+    "change",
+    searchCodes
+);
+
+
+/* START */
+
+loadCodes();
+
+</script>
+
+</body>
+</html>
