@@ -16,8 +16,7 @@
 
         body {
             min-height: 100vh;
-            background:
-                radial-gradient(circle at center, #202a31 0%, #080b0d 65%);
+            background: radial-gradient(circle at center, #202a31 0%, #080b0d 65%);
             color: #fff;
             display: flex;
             justify-content: center;
@@ -26,8 +25,6 @@
             overflow-x: hidden;
             position: relative;
         }
-
-        /* ================= BACKGROUND GEARS ================= */
 
         .gear {
             position: fixed;
@@ -61,13 +58,10 @@
             from {
                 transform: rotate(0deg);
             }
-
             to {
                 transform: rotate(360deg);
             }
         }
-
-        /* ================= MAIN ================= */
 
         .signup-container {
             width: 100%;
@@ -86,8 +80,6 @@
                 0 20px 60px rgba(0, 0, 0, 0.7),
                 0 0 30px rgba(255, 106, 0, 0.08);
         }
-
-        /* ================= LOGO ================= */
 
         .logo {
             text-align: center;
@@ -118,249 +110,94 @@
         }
 
         .logo p {
-            margin-top: 6px;
-            color: #7f8a91;
-            font-size: 13px;
-        }
-
-        /* ================= TITLE ================= */
-
-        .title {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .title h2 {
-            font-size: 27px;
-            margin-bottom: 7px;
-        }
-
-        .title p {
-            color: #89949b;
+            color: #9aa4aa;
             font-size: 14px;
+            margin-top: 8px;
         }
 
-        /* ================= FORM ================= */
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .input-group {
+        .form-group {
             margin-bottom: 18px;
         }
 
-        .input-group label {
+        .form-group label {
             display: block;
-            margin-bottom: 7px;
-            font-size: 13px;
-            color: #c9d0d4;
-        }
-
-        .input-box {
-            position: relative;
-        }
-
-        .input-icon {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ff6a00;
-            font-size: 17px;
-        }
-
-        .input-box input,
-        .input-box select {
-            width: 100%;
-            height: 50px;
-            background: #0c1115;
-            border: 1px solid #303a40;
-            border-radius: 8px;
-            outline: none;
-            color: #fff;
-            padding: 0 42px;
+            margin-bottom: 8px;
+            color: #d7dde0;
             font-size: 14px;
-            transition: 0.3s;
         }
 
-        .input-box input:focus,
-        .input-box select:focus {
-            border-color: #ff6a00;
-            box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.08);
-        }
-
-        .input-box input::placeholder {
-            color: #58636a;
-        }
-
-        /* ================= PASSWORD EYE ================= */
-
-        .eye {
-            position: absolute;
-            right: 13px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #777;
-            font-size: 17px;
-        }
-
-        .eye:hover {
-            color: #ff6a00;
-        }
-
-        /* ================= PASSWORD STRENGTH ================= */
-
-        .password-strength {
-            margin-top: 7px;
-            height: 4px;
+        .form-group input {
             width: 100%;
-            background: #252d32;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .strength-bar {
-            height: 100%;
-            width: 0%;
+            padding: 14px 15px;
+            background: #0c1114;
+            border: 1px solid #3a444a;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
             transition: 0.3s;
         }
 
-        .strength-text {
-            display: block;
-            margin-top: 5px;
-            font-size: 11px;
-            color: #777;
+        .form-group input:focus {
+            border-color: #ff6a00;
+            box-shadow: 0 0 10px rgba(255, 106, 0, 0.15);
         }
-
-        /* ================= TERMS ================= */
-
-        .terms {
-            display: flex;
-            gap: 9px;
-            align-items: flex-start;
-            margin: 5px 0 22px;
-            color: #818b91;
-            font-size: 12px;
-            line-height: 1.5;
-        }
-
-        .terms input {
-            margin-top: 3px;
-            accent-color: #ff6a00;
-        }
-
-        .terms a {
-            color: #ff6a00;
-            text-decoration: none;
-        }
-
-        .terms a:hover {
-            text-decoration: underline;
-        }
-
-        /* ================= BUTTON ================= */
 
         .signup-btn {
             width: 100%;
-            height: 52px;
+            padding: 14px;
             border: none;
             border-radius: 8px;
-            background: linear-gradient(
-                135deg,
-                #ff6a00,
-                #ff8500
-            );
-            color: white;
+            background: #ff6a00;
+            color: #fff;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 8px 22px rgba(255, 106, 0, 0.18);
         }
 
         .signup-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(255, 106, 0, 0.3);
+            background: #e85f00;
+            transform: translateY(-1px);
         }
 
-        .signup-btn:active {
-            transform: scale(0.98);
+        .signup-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
-        /* ================= LOGIN ================= */
+        #message {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 14px;
+            min-height: 20px;
+        }
 
         .login-link {
             text-align: center;
             margin-top: 22px;
-            color: #818b91;
+            color: #9aa4aa;
             font-size: 14px;
         }
 
         .login-link a {
             color: #ff6a00;
-            font-weight: bold;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .login-link a:hover {
             text-decoration: underline;
         }
 
-        /* ================= BACK ================= */
-
-        .back-home {
-            display: block;
-            text-align: center;
-            margin-top: 18px;
-            color: #737d83;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .back-home:hover {
-            color: #ff6a00;
-        }
-
-        /* ================= SECURITY ================= */
-
-        .security {
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 7px;
-            text-align: center;
-            color: #687279;
-            font-size: 11px;
-            background: rgba(255, 106, 0, 0.04);
-            border: 1px solid rgba(255, 106, 0, 0.08);
-        }
-
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 600px) {
-
+        @media (max-width: 500px) {
             .signup-box {
-                padding: 28px 20px;
+                padding: 30px 20px;
             }
 
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .logo h1 {
-                font-size: 19px;
-            }
-
-            .title h2 {
-                font-size: 24px;
-            }
-
-            .gear {
-                opacity: 0.5;
+            .gear1,
+            .gear2 {
+                display: none;
             }
         }
     </style>
@@ -368,310 +205,78 @@
 
 <body>
 
-    <!-- BACKGROUND GEARS -->
-
     <div class="gear gear1">⚙</div>
     <div class="gear gear2">⚙</div>
     <div class="gear gear3">⚙</div>
-
-
-    <!-- SIGNUP -->
 
     <div class="signup-container">
 
         <div class="signup-box">
 
-            <!-- LOGO -->
-
             <div class="logo">
 
-                <div class="logo-icon">
-                    ⚙
-                </div>
+                <div class="logo-icon">⚙</div>
 
                 <h1>
-                    MECHANICAL <span>LIBRARY SP</span>
+                    Mechanical <span>Library SP</span>
                 </h1>
 
-                <p>
-                    Mechanical Knowledge & Technical Library
-                </p>
+                <p>Create your account</p>
 
             </div>
-
-
-            <!-- TITLE -->
-
-            <div class="title">
-
-                <h2>Create Your Account</h2>
-
-                <p>
-                    Join the Mechanical Library SP community
-                </p>
-
-            </div>
-
-
-            <!-- FORM -->
 
             <form id="signupForm">
 
-                <!-- NAME + USER ID -->
-
-                <div class="form-row">
-
-                    <div class="input-group">
-
-                        <label for="fullname">
-                            Full Name
-                        </label>
-
-                        <div class="input-box">
-
-                            <span class="input-icon">👤</span>
-
-                            <input
-                                type="text"
-                                id="fullname"
-                                name="fullname"
-                                placeholder="Enter your name"
-                                autocomplete="name"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="input-group">
-
-                        <label for="userid">
-                            User ID
-                        </label>
-
-                        <div class="input-box">
-
-                            <span class="input-icon">⚙</span>
-
-                            <input
-                                type="text"
-                                id="userid"
-                                name="userid"
-                                placeholder="Create User ID"
-                                autocomplete="username"
-                                minlength="4"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- MOBILE + EMAIL -->
-
-                <div class="form-row">
-
-                    <div class="input-group">
-
-                        <label for="mobile">
-                            Mobile Number
-                        </label>
-
-                        <div class="input-box">
-
-                            <span class="input-icon">📱</span>
-
-                            <input
-                                type="tel"
-                                id="mobile"
-                                name="mobile"
-                                placeholder="10 digit mobile"
-                                pattern="[0-9]{10}"
-                                maxlength="10"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="input-group">
-
-                        <label for="email">
-                            Email Address
-                        </label>
-
-                        <div class="input-box">
-
-                            <span class="input-icon">✉</span>
-
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Your email"
-                                autocomplete="email"
-                                required
-                            >
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PASSWORD -->
-
-                <div class="input-group">
-
-                    <label for="password">
-                        Create Password
-                    </label>
-
-                    <div class="input-box">
-
-                        <span class="input-icon">🔐</span>
-
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            placeholder="Create a strong password"
-                            autocomplete="new-password"
-                            minlength="8"
-                            required
-                        >
-
-                        <span
-                            class="eye"
-                            id="passwordEye"
-                        >
-                            👁
-                        </span>
-
-                    </div>
-
-                    <div class="password-strength">
-                        <div
-                            class="strength-bar"
-                            id="strengthBar"
-                        ></div>
-                    </div>
-
-                    <span
-                        class="strength-text"
-                        id="strengthText"
-                    >
-                        Minimum 8 characters
-                    </span>
-
-                </div>
-
-
-                <!-- CONFIRM PASSWORD -->
-
-                <div class="input-group">
-
-                    <label for="confirmPassword">
-                        Confirm Password
-                    </label>
-
-                    <div class="input-box">
-
-                        <span class="input-icon">🔒</span>
-
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            name="confirmPassword"
-                            placeholder="Re-enter your password"
-                            autocomplete="new-password"
-                            required
-                        >
-
-                        <span
-                            class="eye"
-                            id="confirmEye"
-                        >
-                            👁
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- TERMS -->
-
-                <label class="terms">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
 
                     <input
-                        type="checkbox"
-                        id="terms"
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
                         required
                     >
+                </div>
 
-                    <span>
-                        I agree to the
-                        <a href="#">
-                            Terms & Conditions
-                        </a>
-                        and
-                        <a href="#">
-                            Privacy Policy
-                        </a>
-                        of Mechanical Library SP.
-                    </span>
+                <div class="form-group">
+                    <label for="password">Password</label>
 
-                </label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Minimum 6 characters"
+                        minlength="6"
+                        required
+                    >
+                </div>
 
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
 
-                <!-- BUTTON -->
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter your password"
+                        minlength="6"
+                        required
+                    >
+                </div>
 
                 <button
                     type="submit"
                     class="signup-btn"
+                    id="signupButton"
                 >
-                    ⚙ CREATE MY ACCOUNT
+                    Create Account
                 </button>
 
             </form>
 
-
-            <!-- LOGIN -->
+            <p id="message"></p>
 
             <div class="login-link">
-
                 Already have an account?
-
-                <a href="login.html">
-                    Login Here
-                </a>
-
-            </div>
-
-
-            <!-- HOME -->
-
-            <a
-                href="index.html"
-                class="back-home"
-            >
-                ← Back to Mechanical Library SP
-            </a>
-
-
-            <!-- SECURITY -->
-
-            <div class="security">
-                🔒 Your information will be securely protected
+                <a href="login.html">Login</a>
             </div>
 
         </div>
@@ -679,169 +284,168 @@
     </div>
 
 
-    <!-- JAVASCRIPT -->
+    <script type="module">
 
-    <script>
+        import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-        /* ================= PASSWORD SHOW / HIDE ================= */
-
-        function togglePassword(inputId, eyeId) {
-
-            const input =
-                document.getElementById(inputId);
-
-            const eye =
-                document.getElementById(eyeId);
-
-            eye.addEventListener("click", function () {
-
-                if (input.type === "password") {
-
-                    input.type = "text";
-                    eye.textContent = "🙈";
-
-                } else {
-
-                    input.type = "password";
-                    eye.textContent = "👁";
-
-                }
-
-            });
+        import {
+            getAuth,
+            createUserWithEmailAndPassword
         }
+        from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
 
-        togglePassword(
-            "password",
-            "passwordEye"
-        );
-
-        togglePassword(
-            "confirmPassword",
-            "confirmEye"
-        );
-
-
-        /* ================= PASSWORD STRENGTH ================= */
-
-        const password =
-            document.getElementById("password");
-
-        const strengthBar =
-            document.getElementById("strengthBar");
-
-        const strengthText =
-            document.getElementById("strengthText");
+        const firebaseConfig = {
+            apiKey: "AIzaSyAs5uPMjnz801RxS9uYISNnU3IfVjh4tUY",
+            authDomain: "mechanical-library-sp.firebaseapp.com",
+            projectId: "mechanical-library-sp",
+            storageBucket: "mechanical-library-sp.firebasestorage.app",
+            messagingSenderId: "593105358258",
+            appId: "1:593105358258:web:a0cb1d7a382cc5fd1068ab",
+            measurementId: "G-KK5HCBSFX6"
+        };
 
 
-        password.addEventListener(
-            "input",
-            function () {
+        const app = initializeApp(firebaseConfig);
 
-                const value = password.value;
-
-                let strength = 0;
-
-                if (value.length >= 8)
-                    strength++;
-
-                if (/[A-Z]/.test(value))
-                    strength++;
-
-                if (/[0-9]/.test(value))
-                    strength++;
-
-                if (/[^A-Za-z0-9]/.test(value))
-                    strength++;
+        const auth = getAuth(app);
 
 
-                if (value.length === 0) {
+        const signupForm = document.getElementById("signupForm");
 
-                    strengthBar.style.width = "0%";
-                    strengthText.textContent =
-                        "Minimum 8 characters";
+        const emailInput = document.getElementById("email");
+
+        const passwordInput = document.getElementById("password");
+
+        const confirmPasswordInput =
+            document.getElementById("confirmPassword");
+
+        const message =
+            document.getElementById("message");
+
+        const signupButton =
+            document.getElementById("signupButton");
+
+
+        signupForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const email = emailInput.value.trim();
+
+            const password = passwordInput.value;
+
+            const confirmPassword =
+                confirmPasswordInput.value;
+
+
+            message.textContent = "";
+
+            message.style.color = "#ff6a00";
+
+
+            if (password !== confirmPassword) {
+
+                message.textContent =
+                    "Passwords do not match.";
+
+                return;
+            }
+
+
+            if (password.length < 6) {
+
+                message.textContent =
+                    "Password must be at least 6 characters.";
+
+                return;
+            }
+
+
+            signupButton.disabled = true;
+
+            signupButton.textContent =
+                "Creating Account...";
+
+
+            try {
+
+                await createUserWithEmailAndPassword(
+                    auth,
+                    email,
+                    password
+                );
+
+
+                message.style.color = "#00d084";
+
+                message.textContent =
+                    "Account created successfully!";
+
+
+                signupForm.reset();
+
+
+                setTimeout(function() {
+
+                    window.location.href =
+                        "login.html";
+
+                }, 1500);
+
+
+            } catch (error) {
+
+                console.error(error);
+
+
+                message.style.color = "#ff4d4d";
+
+
+                if (error.code ===
+                    "auth/email-already-in-use") {
+
+                    message.textContent =
+                        "This email is already registered.";
 
                 }
 
-                else if (strength <= 1) {
+                else if (error.code ===
+                    "auth/invalid-email") {
 
-                    strengthBar.style.width = "25%";
-                    strengthText.textContent =
-                        "Weak Password";
-
-                }
-
-                else if (strength === 2) {
-
-                    strengthBar.style.width = "50%";
-                    strengthText.textContent =
-                        "Medium Password";
+                    message.textContent =
+                        "Please enter a valid email.";
 
                 }
 
-                else if (strength === 3) {
+                else if (error.code ===
+                    "auth/weak-password") {
 
-                    strengthBar.style.width = "75%";
-                    strengthText.textContent =
-                        "Strong Password";
+                    message.textContent =
+                        "Password must be at least 6 characters.";
 
                 }
 
                 else {
 
-                    strengthBar.style.width = "100%";
-                    strengthText.textContent =
-                        "Very Strong Password";
+                    message.textContent =
+                        "Signup failed. Please try again.";
 
                 }
 
             }
-        );
 
 
-        /* ================= SIGNUP FORM ================= */
+            signupButton.disabled = false;
 
-        document
-            .getElementById("signupForm")
-            .addEventListener("submit", function(event) {
+            signupButton.textContent =
+                "Create Account";
 
-                event.preventDefault();
+        });
 
+    </script>
 
-                const passwordValue =
-                    document.getElementById("password").value;
-
-                const confirmPasswordValue =
-                    document.getElementById("confirmPassword").value;
-
-                const mobile =
-                    document.getElementById("mobile").value;
-
-
-                /* Password Match */
-
-                if (passwordValue !== confirmPasswordValue) {
-
-                    alert(
-                        "Password and Confirm Password do not match."
-                    );
-
-                    return;
-                }
-
-
-                /* Mobile Validation */
-
-                if (!/^[0-9]{10}$/.test(mobile)) {
-
-                    alert(
-                        "Please enter a valid 10 digit mobile number."
-                    );
-
-                    return;
-                }
-
-
-                /* Terms */
-
-              
+</body>
+</html>
