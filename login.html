@@ -20,39 +20,38 @@
                 radial-gradient(circle at center, #202a31 0%, #080b0d 65%);
             color: #fff;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            padding: 25px 15px;
             overflow: hidden;
-            position: relative;
         }
 
-        /* ================= BACKGROUND GEARS ================= */
-
         .gear {
-            position: absolute;
-            color: rgba(255, 106, 0, 0.08);
-            font-size: 230px;
-            animation: rotate 20s linear infinite;
+            position: fixed;
+            color: rgba(255, 106, 0, 0.07);
             user-select: none;
+            z-index: 0;
+            animation: rotate 20s linear infinite;
         }
 
         .gear1 {
-            left: -80px;
-            top: -60px;
+            font-size: 280px;
+            left: -100px;
+            top: -80px;
         }
 
         .gear2 {
-            right: -90px;
-            bottom: -80px;
-            font-size: 300px;
+            font-size: 320px;
+            right: -120px;
+            bottom: -100px;
             animation-direction: reverse;
         }
 
         .gear3 {
-            right: 12%;
-            top: 10%;
-            font-size: 100px;
-            animation-duration: 10s;
+            font-size: 110px;
+            right: 15%;
+            top: 8%;
+            animation-duration: 9s;
         }
 
         @keyframes rotate {
@@ -65,51 +64,45 @@
             }
         }
 
-        /* ================= LOGIN BOX ================= */
-
         .login-container {
             width: 100%;
-            max-width: 430px;
-            padding: 20px;
+            max-width: 500px;
             position: relative;
             z-index: 5;
         }
 
         .login-box {
-            background: rgba(17, 23, 28, 0.96);
+            background: rgba(17, 23, 28, 0.97);
             border: 1px solid #303a40;
             border-top: 3px solid #ff6a00;
-            border-radius: 15px;
-            padding: 38px 32px;
+            border-radius: 16px;
+            padding: 35px 32px;
             box-shadow:
                 0 20px 60px rgba(0, 0, 0, 0.7),
                 0 0 30px rgba(255, 106, 0, 0.08);
         }
 
-        /* ================= LOGO ================= */
-
         .logo {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
         .logo-icon {
-            width: 75px;
-            height: 75px;
-            margin: 0 auto 15px;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 12px;
             border: 2px solid #ff6a00;
             border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 42px;
+            align-items: center;
             color: #ff6a00;
+            font-size: 40px;
             animation: rotate 8s linear infinite;
-            box-shadow: 0 0 25px rgba(255, 106, 0, 0.15);
         }
 
         .logo h1 {
-            font-size: 23px;
+            font-size: 22px;
             letter-spacing: 1px;
         }
 
@@ -118,238 +111,131 @@
         }
 
         .logo p {
-            color: #7f8a91;
-            font-size: 13px;
-            margin-top: 7px;
-        }
-
-        /* ================= TITLE ================= */
-
-        .login-title {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .login-title h2 {
-            font-size: 28px;
-            margin-bottom: 7px;
-        }
-
-        .login-title p {
-            color: #8c969c;
+            color: #9aa4aa;
             font-size: 14px;
+            margin-top: 8px;
         }
 
-        /* ================= INPUT ================= */
-
-        .input-group {
-            margin-bottom: 20px;
+        .form-group {
+            margin-bottom: 18px;
         }
 
-        .input-group label {
+        .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #c8ced2;
+            color: #d7dde0;
             font-size: 14px;
         }
 
-        .input-box {
+        .password-box {
             position: relative;
         }
 
-        .input-box .icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #ff6a00;
-            font-size: 18px;
-        }
-
-        .input-box input {
+        .form-group input {
             width: 100%;
-            height: 52px;
-            background: #0c1115;
-            border: 1px solid #303a40;
+            padding: 14px 15px;
+            background: #0c1114;
+            border: 1px solid #3a444a;
             border-radius: 8px;
-            outline: none;
-            padding: 0 45px;
-            color: white;
+            color: #fff;
             font-size: 15px;
+            outline: none;
             transition: 0.3s;
         }
 
-        .input-box input:focus {
+        .password-box input {
+            padding-right: 55px;
+        }
+
+        .form-group input:focus {
             border-color: #ff6a00;
-            box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.08);
+            box-shadow: 0 0 10px rgba(255, 106, 0, 0.15);
         }
-
-        .input-box input::placeholder {
-            color: #59636a;
-        }
-
-        /* ================= PASSWORD SHOW ================= */
 
         .show-password {
             position: absolute;
-            right: 14px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
-            color: #777;
+            background: none;
+            border: none;
+            color: #9aa4aa;
             cursor: pointer;
-            font-size: 17px;
+            font-size: 13px;
         }
 
         .show-password:hover {
             color: #ff6a00;
         }
 
-        /* ================= OPTIONS ================= */
+        .forgot {
+            text-align: right;
+            margin-top: -7px;
+            margin-bottom: 20px;
+        }
 
-        .options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 5px 0 25px;
+        .forgot a {
+            color: #ff6a00;
+            text-decoration: none;
             font-size: 13px;
         }
 
-        .remember {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            color: #8d979d;
-        }
-
-        .remember input {
-            accent-color: #ff6a00;
-        }
-
-        .forgot {
-            color: #ff6a00;
-            text-decoration: none;
-        }
-
-        .forgot:hover {
-            text-decoration: underline;
-        }
-
-        /* ================= LOGIN BUTTON ================= */
-
         .login-btn {
             width: 100%;
-            height: 53px;
+            padding: 14px;
             border: none;
             border-radius: 8px;
-            background: linear-gradient(
-                135deg,
-                #ff6a00,
-                #ff8500
-            );
-            color: white;
+            background: #ff6a00;
+            color: #fff;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(255, 106, 0, 0.18);
         }
 
         .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(255, 106, 0, 0.3);
+            background: #e85f00;
+            transform: translateY(-1px);
         }
 
-        .login-btn:active {
-            transform: scale(0.98);
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
         }
 
-        /* ================= DIVIDER ================= */
-
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 25px 0;
-            color: #59636a;
-            font-size: 12px;
-        }
-
-        .divider::before,
-        .divider::after {
-            content: "";
-            height: 1px;
-            flex: 1;
-            background: #293137;
-        }
-
-        /* ================= SIGNUP ================= */
-
-        .signup {
+        #message {
             text-align: center;
-            color: #7f898f;
+            margin-top: 18px;
+            min-height: 20px;
             font-size: 14px;
         }
 
-        .signup a {
+        .signup-link {
+            text-align: center;
+            margin-top: 22px;
+            color: #9aa4aa;
+            font-size: 14px;
+        }
+
+        .signup-link a {
             color: #ff6a00;
             text-decoration: none;
             font-weight: bold;
         }
 
-        .signup a:hover {
+        .signup-link a:hover {
             text-decoration: underline;
         }
 
-        /* ================= BACK HOME ================= */
-
-        .back-home {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #737d83;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .back-home:hover {
-            color: #ff6a00;
-        }
-
-        /* ================= SECURITY ================= */
-
-        .security {
-            margin-top: 25px;
-            padding: 11px;
-            border-radius: 7px;
-            background: rgba(255, 106, 0, 0.05);
-            border: 1px solid rgba(255, 106, 0, 0.1);
-            text-align: center;
-            color: #707a80;
-            font-size: 11px;
-        }
-
-        /* ================= MOBILE ================= */
-
-        @media (max-width: 480px) {
-
-            .login-container {
-                padding: 12px;
-            }
-
+        @media (max-width: 500px) {
             .login-box {
-                padding: 30px 22px;
+                padding: 30px 20px;
             }
 
-            .logo h1 {
-                font-size: 20px;
-            }
-
-            .login-title h2 {
-                font-size: 25px;
-            }
-
-            .gear {
-                opacity: 0.5;
+            .gear1,
+            .gear2 {
+                display: none;
             }
         }
     </style>
@@ -357,160 +243,98 @@
 
 <body>
 
-    <!-- Background Gears -->
-
     <div class="gear gear1">⚙</div>
     <div class="gear gear2">⚙</div>
     <div class="gear gear3">⚙</div>
 
 
-    <!-- LOGIN -->
-
     <div class="login-container">
 
         <div class="login-box">
 
-            <!-- Logo -->
-
             <div class="logo">
 
-                <div class="logo-icon">
-                    ⚙
-                </div>
+                <div class="logo-icon">⚙</div>
 
                 <h1>
-                    MECHANICAL <span>LIBRARY SP</span>
+                    Mechanical <span>Library SP</span>
                 </h1>
 
-                <p>
-                    Mechanical Knowledge & Technical Library
-                </p>
+                <p>Login to your account</p>
 
             </div>
 
-
-            <!-- Login Title -->
-
-            <div class="login-title">
-
-                <h2>Welcome Back</h2>
-
-                <p>
-                    Login to access your mechanical library
-                </p>
-
-            </div>
-
-
-            <!-- FORM -->
 
             <form id="loginForm">
 
-                <!-- User ID -->
+                <div class="form-group">
 
-                <div class="input-group">
-
-                    <label for="userid">
-                        User ID / Email
+                    <label for="email">
+                        Email Address
                     </label>
 
-                    <div class="input-box">
-
-                        <span class="icon">👤</span>
-
-                        <input
-                            type="text"
-                            id="userid"
-                            name="userid"
-                            placeholder="Enter your User ID or Email"
-                            autocomplete="username"
-                            required
-                        >
-
-                    </div>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
 
                 </div>
 
 
-                <!-- Password -->
-
-                <div class="input-group">
+                <div class="form-group">
 
                     <label for="password">
                         Password
                     </label>
 
-                    <div class="input-box">
-
-                        <span class="icon">🔐</span>
+                    <div class="password-box">
 
                         <input
                             type="password"
                             id="password"
-                            name="password"
                             placeholder="Enter your password"
-                            autocomplete="current-password"
                             required
                         >
 
-                        <span
+                        <button
+                            type="button"
                             class="show-password"
-                            id="togglePassword"
-                            title="Show Password"
+                            id="showPassword"
                         >
-                            👁
-                        </span>
+                            Show
+                        </button>
 
                     </div>
 
                 </div>
 
 
-                <!-- Options -->
+                <div class="forgot">
 
-                <div class="options">
-
-                    <label class="remember">
-
-                        <input
-                            type="checkbox"
-                            id="remember"
-                        >
-
-                        Remember Me
-
-                    </label>
-
-
-                    <a href="forgot-password.html" class="forgot">
+                    <a href="forgot-password.html">
                         Forgot Password?
                     </a>
 
                 </div>
 
 
-                <!-- Login Button -->
-
                 <button
                     type="submit"
                     class="login-btn"
+                    id="loginButton"
                 >
-                    ⚙ LOGIN TO LIBRARY
+                    Login
                 </button>
 
             </form>
 
 
-            <!-- Divider -->
-
-            <div class="divider">
-                NEW MEMBER?
-            </div>
+            <p id="message"></p>
 
 
-            <!-- Signup -->
-
-            <div class="signup">
+            <div class="signup-link">
 
                 Don't have an account?
 
@@ -520,109 +344,205 @@
 
             </div>
 
-
-            <!-- Back Home -->
-
-            <a href="index.html" class="back-home">
-                ← Back to Mechanical Library SP
-            </a>
-
-
-            <!-- Security -->
-
-            <div class="security">
-                🔒 Your account information is protected
-            </div>
-
         </div>
 
     </div>
 
 
-    <!-- JAVASCRIPT -->
+    <script type="module">
 
-    <script>
+        import { initializeApp }
+        from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-        /* Show / Hide Password */
+        import {
+            getAuth,
+            signInWithEmailAndPassword
+        }
+        from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-        const password =
+
+        const firebaseConfig = {
+
+            apiKey: "AIzaSyAs5uPMjnz801RxS9uYISNnU3IfVjh4tUY",
+
+            authDomain:
+                "mechanical-library-sp.firebaseapp.com",
+
+            projectId:
+                "mechanical-library-sp",
+
+            storageBucket:
+                "mechanical-library-sp.firebasestorage.app",
+
+            messagingSenderId:
+                "593105358258",
+
+            appId:
+                "1:593105358258:web:a0cb1d7a382cc5fd1068ab",
+
+            measurementId:
+                "G-KK5HCBSFX6"
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+
+        const auth = getAuth(app);
+
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const emailInput =
+            document.getElementById("email");
+
+        const passwordInput =
             document.getElementById("password");
 
-        const togglePassword =
-            document.getElementById("togglePassword");
+        const loginButton =
+            document.getElementById("loginButton");
 
-        togglePassword.addEventListener(
+        const message =
+            document.getElementById("message");
+
+        const showPassword =
+            document.getElementById("showPassword");
+
+
+        showPassword.addEventListener(
             "click",
-            function () {
+            function() {
 
-                if (password.type === "password") {
+                if (passwordInput.type === "password") {
 
-                    password.type = "text";
+                    passwordInput.type = "text";
 
-                    togglePassword.textContent = "🙈";
-
-                    togglePassword.title =
-                        "Hide Password";
+                    showPassword.textContent = "Hide";
 
                 } else {
 
-                    password.type = "password";
+                    passwordInput.type = "password";
 
-                    togglePassword.textContent = "👁";
+                    showPassword.textContent = "Show";
 
-                    togglePassword.title =
-                        "Show Password";
                 }
 
             }
         );
 
 
-        /* Login Form */
-
-        document
-            .getElementById("loginForm")
-            .addEventListener("submit", function(event) {
+        loginForm.addEventListener(
+            "submit",
+            async function(event) {
 
                 event.preventDefault();
 
-                const userId =
-                    document.getElementById("userid").value.trim();
 
-                const userPassword =
-                    document.getElementById("password").value.trim();
+                const email =
+                    emailInput.value.trim();
+
+                const password =
+                    passwordInput.value;
 
 
-                if (userId === "" || userPassword === "") {
+                message.textContent = "";
 
-                    alert(
-                        "Please enter User ID and Password."
+                loginButton.disabled = true;
+
+                loginButton.textContent =
+                    "Logging in...";
+
+
+                try {
+
+                    await signInWithEmailAndPassword(
+                        auth,
+                        email,
+                        password
                     );
 
-                    return;
+
+                    message.style.color =
+                        "#00d084";
+
+                    message.textContent =
+                        "Login successful!";
+
+
+                    setTimeout(function() {
+
+                        window.location.href =
+                            "index.html";
+
+                    }, 800);
+
+
+                } catch (error) {
+
+                    console.error(error);
+
+
+                    message.style.color =
+                        "#ff4d4d";
+
+
+                    if (
+                        error.code ===
+                        "auth/invalid-credential"
+                    ) {
+
+                        message.textContent =
+                            "Invalid email or password.";
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/user-not-found"
+                    ) {
+
+                        message.textContent =
+                            "Account not found.";
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/wrong-password"
+                    ) {
+
+                        message.textContent =
+                            "Incorrect password.";
+
+                    }
+
+                    else if (
+                        error.code ===
+                        "auth/invalid-email"
+                    ) {
+
+                        message.textContent =
+                            "Please enter a valid email.";
+
+                    }
+
+                    else {
+
+                        message.textContent =
+                            "Login failed. Please try again.";
+
+                    }
+
                 }
 
 
-                /*
-                    BACKEND LOGIN
-                    ----------------
-                    Yahan baad me PHP / Node.js /
-                    Firebase / MySQL backend connect hoga.
+                loginButton.disabled = false;
 
-                    Example:
+                loginButton.textContent =
+                    "Login";
 
-                    fetch("login.php", {
-                        method: "POST",
-                        body: new FormData(this)
-                    });
-                */
-
-
-                alert(
-                    "Login system will be connected with the database next."
-                );
-
-            });
+            }
+        );
 
     </script>
 
