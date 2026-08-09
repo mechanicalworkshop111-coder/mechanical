@@ -8,566 +8,514 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>OBD Code Library | Mechanical Library SP</title>
+<title>OBD Error Codes | Mechanical Library SP</title>
 
 <style>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-body {
-    background: #090d10;
-    color: #ffffff;
+body{
+    background:#090d10;
+    color:#fff;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 
-header {
-    height: 72px;
-    background: #11171c;
-    border-bottom: 2px solid #ff6a00;
+header{
+    height:72px;
+    background:#11171c;
+    border-bottom:2px solid #ff6a00;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    padding: 0 5%;
+    padding:0 5%;
 
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
-.gear {
-    font-size: 34px;
-    color: #ff6a00;
+.gear{
+    font-size:32px;
+    color:#ff6a00;
 }
 
-.logo h1 {
-    font-size: 17px;
-    line-height: 1.1;
+.logo h1{
+    font-size:17px;
+    line-height:1.1;
 }
 
-.logo span {
-    color: #ff6a00;
+.logo span{
+    color:#ff6a00;
 }
 
-.back {
-    text-decoration: none;
-    color: #bbb;
+.home-btn{
+    text-decoration:none;
+    color:#ddd;
 
-    border: 1px solid #343d43;
+    border:1px solid #39434a;
 
-    padding: 9px 15px;
+    padding:9px 14px;
 
-    border-radius: 6px;
+    border-radius:7px;
 
-    font-size: 13px;
+    font-size:13px;
 }
 
-.back:hover {
-    color: #ff6a00;
-    border-color: #ff6a00;
+.home-btn:hover{
+    color:#ff6a00;
+    border-color:#ff6a00;
 }
 
 
-/* ================= HERO ================= */
+/* HERO */
 
-.hero {
+.hero{
+    text-align:center;
 
-    text-align: center;
-
-    padding: 50px 20px 40px;
+    padding:45px 18px 35px;
 
     background:
     radial-gradient(
         circle at center,
         #202a31 0%,
-        #090d10 65%
+        #090d10 68%
     );
 }
 
-.badge {
+.badge{
+    display:inline-block;
 
-    display: inline-block;
+    color:#ff6a00;
 
-    color: #ff6a00;
+    border:1px solid #ff6a00;
 
-    border: 1px solid #ff6a00;
+    padding:7px 14px;
 
-    padding: 7px 15px;
+    border-radius:20px;
 
-    border-radius: 20px;
+    font-size:11px;
 
-    font-size: 11px;
+    letter-spacing:1px;
 
-    letter-spacing: 1px;
-
-    margin-bottom: 16px;
+    margin-bottom:16px;
 }
 
-.hero h2 {
-
-    font-size:
-    clamp(30px, 6vw, 52px);
-
-    margin-bottom: 12px;
+.hero h2{
+    font-size:clamp(32px,7vw,52px);
+    margin-bottom:10px;
 }
 
-.hero h2 span {
-    color: #ff6a00;
+.hero h2 span{
+    color:#ff6a00;
 }
 
-.hero p {
+.hero p{
+    max-width:700px;
 
-    max-width: 720px;
+    margin:auto;
 
-    margin: auto;
+    color:#89939a;
 
-    color: #808b92;
+    font-size:14px;
 
-    font-size: 14px;
-
-    line-height: 1.7;
+    line-height:1.7;
 }
 
 
-/* ================= SEARCH ================= */
+/* SEARCH */
 
-.search-area {
-
-    max-width: 850px;
-
-    margin: 25px auto 0;
+.search-area{
+    max-width:850px;
+    margin:25px auto 0;
 }
 
-.search-box {
-
-    display: flex;
-
-    gap: 10px;
+.search-box{
+    display:flex;
+    gap:10px;
 }
 
-.search-box input {
+.search-box input{
+    flex:1;
 
-    flex: 1;
+    height:52px;
 
-    height: 53px;
+    background:#11181d;
 
-    background: #11181d;
+    border:1px solid #39434a;
 
-    border: 1px solid #3a444a;
+    border-radius:8px;
 
-    border-radius: 8px;
+    outline:none;
 
-    outline: none;
+    color:#fff;
 
-    color: white;
+    padding:0 17px;
 
-    padding: 0 18px;
-
-    font-size: 15px;
+    font-size:15px;
 }
 
-.search-box input:focus {
-
-    border-color: #ff6a00;
-
-    box-shadow:
-    0 0 0 3px
-    rgba(255,106,0,.08);
+.search-box input:focus{
+    border-color:#ff6a00;
 }
 
-.search-btn {
+.search-btn{
+    height:52px;
 
-    height: 53px;
+    padding:0 24px;
 
-    padding: 0 25px;
+    border:none;
 
-    border: none;
+    border-radius:8px;
 
-    border-radius: 8px;
+    background:#ff6a00;
 
-    background: #ff6a00;
+    color:#fff;
 
-    color: white;
+    font-weight:bold;
 
-    font-weight: bold;
-
-    cursor: pointer;
+    cursor:pointer;
 }
 
-.search-btn:hover {
-    background: #ff7c20;
+.search-btn:hover{
+    background:#ff7b1a;
 }
 
 
-/* ================= FILTER ================= */
+/* FILTER */
 
-.filters {
-
-    display: flex;
-
-    gap: 10px;
-
-    margin-top: 12px;
+.filters{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
 }
 
-.filters select {
+.filters select{
+    flex:1;
 
-    height: 42px;
+    height:42px;
 
-    flex: 1;
+    background:#11181d;
 
-    background: #11181d;
+    border:1px solid #303a40;
 
-    border: 1px solid #303a40;
+    color:#bbb;
 
-    color: #aaa;
+    border-radius:7px;
 
-    border-radius: 6px;
+    padding:0 10px;
 
-    padding: 0 10px;
-
-    outline: none;
+    outline:none;
 }
 
 
-/* ================= CONTENT ================= */
+/* CONTENT */
 
-.container {
+.container{
+    max-width:1150px;
 
-    max-width: 1150px;
+    margin:auto;
 
-    margin: auto;
-
-    padding: 35px 20px 60px;
+    padding:32px 18px 60px;
 }
 
-.section-title {
-
-    margin-bottom: 20px;
+.section-title{
+    margin-bottom:18px;
 }
 
-.section-title h3 {
-
-    font-size: 24px;
+.section-title h3{
+    font-size:23px;
 }
 
-.section-title span {
-
-    color: #ff6a00;
+.section-title span{
+    color:#ff6a00;
 }
 
 
-/* ================= LOADING ================= */
+/* LOADING */
 
-#loading {
+#loading{
+    text-align:center;
 
-    text-align: center;
+    padding:45px 15px;
 
-    padding: 50px 20px;
+    color:#ff6a00;
 
-    color: #ff6a00;
-
-    font-size: 16px;
+    font-size:15px;
 }
 
 
-/* ================= CODE LIST ================= */
+/* ERROR */
 
-.codes {
+#errorBox{
+    display:none;
 
-    display: grid;
+    background:#241316;
+
+    border:1px solid #ff4d4d;
+
+    color:#ff9999;
+
+    border-radius:8px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+    line-height:1.6;
+
+    font-size:13px;
+}
+
+
+/* CODE GRID */
+
+.codes{
+    display:grid;
 
     grid-template-columns:
     repeat(
         auto-fit,
-        minmax(290px, 1fr)
+        minmax(290px,1fr)
     );
 
-    gap: 17px;
+    gap:17px;
 }
 
 
-/* ================= CODE CARD ================= */
+/* CARD */
 
-.code-card {
+.code-card{
+    background:#12191e;
 
-    background: #12191e;
+    border:1px solid #293239;
 
-    border: 1px solid #293239;
+    border-radius:10px;
 
-    border-radius: 10px;
+    padding:20px;
 
-    padding: 20px;
+    cursor:pointer;
 
-    cursor: pointer;
-
-    transition: .3s;
+    transition:.25s;
 }
 
-.code-card:hover {
-
-    border-color: #ff6a00;
-
-    transform:
-    translateY(-3px);
+.code-card:hover{
+    border-color:#ff6a00;
+    transform:translateY(-3px);
 }
 
-.code-header {
+.code-header{
+    display:flex;
 
-    display: flex;
+    justify-content:space-between;
 
-    justify-content: space-between;
+    align-items:center;
 
-    align-items: center;
+    gap:10px;
 
-    gap: 10px;
-
-    margin-bottom: 14px;
+    margin-bottom:14px;
 }
 
-.code-number {
+.code-number{
+    color:#ff6a00;
 
-    color: #ff6a00;
+    font-size:23px;
 
-    font-size: 23px;
-
-    font-weight: bold;
+    font-weight:bold;
 }
 
-.system {
+.system{
+    font-size:9px;
 
-    font-size: 9px;
+    border:1px solid #475159;
 
-    border: 1px solid #475159;
+    color:#9aa3a8;
 
-    color: #8c969c;
+    padding:5px 7px;
 
-    padding: 5px 7px;
+    border-radius:4px;
 
-    border-radius: 4px;
-
-    text-transform: uppercase;
+    text-transform:uppercase;
 }
 
-.code-card h4 {
+.code-card h4{
+    font-size:16px;
 
-    font-size: 16px;
-
-    margin-bottom: 8px;
+    margin-bottom:8px;
 }
 
-.code-card .short {
+.short{
+    color:#9aa4aa;
 
-    color: #7c878e;
+    font-size:13px;
 
-    font-size: 12px;
-
-    line-height: 1.6;
+    line-height:1.6;
 }
 
 
-/* ================= DETAILS ================= */
+/* DETAILS */
 
-.details {
+.details{
+    display:none;
 
-    display: none;
+    margin-top:17px;
 
-    margin-top: 17px;
+    padding-top:15px;
 
-    padding-top: 15px;
-
-    border-top:
-    1px solid #293239;
+    border-top:1px solid #293239;
 }
 
-.detail {
+.detail{
+    margin-bottom:13px;
 
-    margin-bottom: 12px;
+    color:#aab2b7;
 
-    font-size: 12px;
+    font-size:12px;
 
-    line-height: 1.6;
-
-    color: #a0a9ae;
+    line-height:1.7;
 }
 
-.detail strong {
+.detail strong{
+    display:block;
 
-    display: block;
+    color:#ff6a00;
 
-    color: #ff6a00;
+    margin-bottom:3px;
 
-    margin-bottom: 3px;
-}
-
-
-/* ================= NO RESULT ================= */
-
-#noResult {
-
-    display: none;
-
-    text-align: center;
-
-    padding: 60px 20px;
-
-    color: #737e85;
-}
-
-.warning {
-
-    font-size: 45px;
-
-    margin-bottom: 12px;
-}
-
-#noResult h3 {
-
-    color: #ff6a00;
-
-    font-size: 22px;
-
-    margin-bottom: 8px;
+    font-size:12px;
 }
 
 
-/* ================= ERROR ================= */
+/* NO RESULT */
 
-#errorBox {
+#noResult{
+    display:none;
 
-    display: none;
+    text-align:center;
 
-    background: #241316;
+    padding:55px 20px;
 
-    border: 1px solid #ff4d4d;
+    color:#7d878d;
+}
 
-    border-radius: 8px;
+.warning{
+    font-size:42px;
+    margin-bottom:10px;
+}
 
-    padding: 20px;
-
-    margin-top: 20px;
-
-    color: #ff8a8a;
-
-    text-align: center;
-
-    line-height: 1.7;
+#noResult h3{
+    color:#ff6a00;
+    margin-bottom:7px;
 }
 
 
-/* ================= INFO ================= */
+/* INFO */
 
-.info-box {
+.info-box{
+    margin-top:35px;
 
-    margin-top: 35px;
+    background:#11181d;
 
-    background: #11181d;
+    border:1px solid #293239;
 
-    border: 1px solid #293239;
+    border-left:3px solid #ff6a00;
 
-    border-left: 3px solid #ff6a00;
+    border-radius:8px;
 
-    border-radius: 8px;
-
-    padding: 20px;
+    padding:20px;
 }
 
-.info-box h3 {
-
-    margin-bottom: 10px;
-
-    font-size: 17px;
+.info-box h3{
+    font-size:17px;
+    margin-bottom:9px;
 }
 
-.info-box p {
+.info-box p{
+    color:#818c92;
 
-    color: #7e898f;
+    font-size:12px;
 
-    font-size: 12px;
-
-    line-height: 1.7;
+    line-height:1.7;
 }
 
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 
-footer {
+footer{
+    background:#070a0c;
 
-    background: #070a0c;
+    border-top:1px solid #252d32;
 
-    border-top:
-    1px solid #252d32;
+    padding:25px;
 
-    padding: 25px;
+    text-align:center;
 
-    text-align: center;
+    color:#68737a;
 
-    color: #68737a;
-
-    font-size: 12px;
+    font-size:12px;
 }
 
-footer span {
-    color: #ff6a00;
+footer span{
+    color:#ff6a00;
 }
 
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
-@media (max-width: 600px) {
+@media(max-width:600px){
 
-    header {
-        padding: 0 15px;
+    header{
+        padding:0 15px;
     }
 
-    .logo h1 {
-        font-size: 14px;
+    .logo h1{
+        font-size:14px;
     }
 
-    .gear {
-        font-size: 28px;
+    .gear{
+        font-size:27px;
     }
 
-    .back {
-        padding: 7px 10px;
+    .home-btn{
+        padding:7px 10px;
     }
 
-    .hero {
-        padding-top: 40px;
+    .hero{
+        padding-top:38px;
     }
 
-    .hero h2 {
-        font-size: 34px;
+    .hero h2{
+        font-size:34px;
     }
 
-    .search-box {
-        flex-direction: column;
+    .search-box{
+        flex-direction:column;
     }
 
-    .search-btn {
-        width: 100%;
+    .search-btn{
+        width:100%;
     }
 
-    .filters {
-        flex-direction: column;
+    .filters{
+        flex-direction:column;
     }
 
-    .container {
-        padding-left: 15px;
-        padding-right: 15px;
+    .container{
+        padding-left:15px;
+        padding-right:15px;
     }
 
 }
@@ -580,15 +528,13 @@ footer span {
 <body>
 
 
-<!-- ================= HEADER ================= -->
+<!-- HEADER -->
 
 <header>
 
     <div class="logo">
 
-        <div class="gear">
-            ⚙
-        </div>
+        <div class="gear">⚙</div>
 
         <h1>
             MECHANICAL<br>
@@ -598,17 +544,20 @@ footer span {
     </div>
 
 
-    <a href="index.html"
-       class="back">
+    <!-- IMPORTANT:
+         Home page ka naam index.html hona chahiye -->
 
-        ← Dashboard
+    <a href="index.html"
+       class="home-btn">
+
+        ← Home
 
     </a>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -618,16 +567,12 @@ footer span {
 
 
     <h2>
-        OBD <span>Code Library</span>
+        OBD <span>Error Codes</span>
     </h2>
 
 
     <p>
-
-        Search diagnostic trouble codes
-        and find their meaning, symptoms,
-        possible causes and checking steps.
-
+        Diagnostic Trouble Codes की जानकारी
     </p>
 
 
@@ -638,7 +583,7 @@ footer span {
             <input
                 type="search"
                 id="searchInput"
-                placeholder="Search P0487, EGR, sensor..."
+                placeholder="P0487, P0036, EGR, sensor..."
             >
 
             <button
@@ -714,10 +659,9 @@ footer span {
 </section>
 
 
-<!-- ================= CONTENT ================= -->
+<!-- CONTENT -->
 
 <main class="container">
-
 
     <div class="section-title">
 
@@ -733,9 +677,7 @@ footer span {
     </div>
 
 
-    <div
-        id="errorBox">
-    </div>
+    <div id="errorBox"></div>
 
 
     <div
@@ -755,7 +697,7 @@ footer span {
         </h3>
 
         <p>
-            Try another OBD code or search word.
+            दूसरा code या search word try करें।
         </p>
 
     </div>
@@ -768,13 +710,10 @@ footer span {
         </h3>
 
         <p>
-
-            OBD codes can have different causes
-            depending on vehicle manufacturer,
-            engine and ECU. Always verify the
-            code with the vehicle service information
-            before carrying out repairs.
-
+            OBD code का कारण vehicle manufacturer,
+            engine और ECU के अनुसार अलग हो सकता है।
+            Repair करने से पहले service information
+            से code verify करें।
         </p>
 
     </div>
@@ -782,7 +721,7 @@ footer span {
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -797,10 +736,9 @@ footer span {
 </footer>
 
 
-<!-- ================= FIREBASE ================= -->
+<!-- FIREBASE -->
 
 <script type="module">
-
 
 import {
     initializeApp
@@ -818,7 +756,7 @@ from
 "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
-/* ================= FIREBASE CONFIG ================= */
+/* FIREBASE CONFIG */
 
 const firebaseConfig = {
 
@@ -846,17 +784,16 @@ const firebaseConfig = {
 };
 
 
-/* ================= FIREBASE START ================= */
+/* START FIREBASE */
 
 const app =
     initializeApp(firebaseConfig);
-
 
 const db =
     getFirestore(app);
 
 
-/* ================= ELEMENTS ================= */
+/* ELEMENTS */
 
 const loading =
     document.getElementById("loading");
@@ -883,20 +820,21 @@ const typeFilter =
     document.getElementById("typeFilter");
 
 
-/* ================= DATA ================= */
+/* DATA */
 
 let allCodes = [];
 
 
-/* ================= LOAD CODES ================= */
+/* LOAD FIREBASE */
 
-async function loadCodes() {
+async function loadCodes(){
 
-    try {
+    try{
 
         loading.style.display = "block";
 
         errorBox.style.display = "none";
+
 
         const snapshot =
             await getDocs(
@@ -911,11 +849,11 @@ async function loadCodes() {
 
 
         snapshot.forEach(
-            function(doc) {
+            (doc) => {
 
                 allCodes.push({
 
-                    id: doc.id,
+                    id:doc.id,
 
                     ...doc.data()
 
@@ -925,18 +863,28 @@ async function loadCodes() {
         );
 
 
-        console.log(
-            "OBD codes:",
-            allCodes
-        );
-
-
         loading.style.display = "none";
 
 
-        if (allCodes.length === 0) {
+        if(allCodes.length === 0){
 
-            showEmptyDatabase();
+            noResult.style.display = "block";
+
+            noResult.innerHTML = `
+
+                <div class="warning">
+                    📂
+                </div>
+
+                <h3>
+                    OBD Database Empty
+                </h3>
+
+                <p>
+                    Firebase में अभी कोई OBD code नहीं है।
+                </p>
+
+            `;
 
             return;
 
@@ -945,15 +893,12 @@ async function loadCodes() {
 
         displayCodes(allCodes);
 
-
     }
 
-    catch(error) {
 
-        console.error(
-            "Firebase Error:",
-            error
-        );
+    catch(error){
+
+        console.error(error);
 
 
         loading.style.display = "none";
@@ -961,68 +906,45 @@ async function loadCodes() {
         errorBox.style.display = "block";
 
 
-        errorBox.innerHTML =
+        errorBox.innerHTML = `
 
-            "❌ <strong>OBD codes load नहीं हो पाए।</strong>" +
+            ❌ <strong>
+            OBD codes load नहीं हो पाए।
+            </strong>
 
-            "<br><br>" +
+            <br><br>
 
-            "Firebase Error: " +
+            Firebase Error:
 
-            "<strong>" +
+            <strong>
+                ${escapeHTML(
+                    error.code || "Unknown"
+                )}
+            </strong>
 
-            escapeHTML(
-                error.code || "Unknown error"
-            ) +
+            <br>
 
-            "</strong>" +
-
-            "<br>" +
-
-            escapeHTML(
+            ${escapeHTML(
                 error.message || ""
-            );
+            )}
+
+        `;
 
     }
 
 }
 
 
-/* ================= EMPTY DATABASE ================= */
+/* DISPLAY */
 
-function showEmptyDatabase() {
-
-    noResult.style.display = "block";
-
-    noResult.innerHTML = `
-
-        <div class="warning">
-            📂
-        </div>
-
-        <h3>
-            OBD Database Empty
-        </h3>
-
-        <p>
-            Firebase में अभी कोई OBD code मौजूद नहीं है।
-        </p>
-
-    `;
-
-}
-
-
-/* ================= DISPLAY ================= */
-
-function displayCodes(codes) {
+function displayCodes(codes){
 
     codeList.innerHTML = "";
 
     noResult.style.display = "none";
 
 
-    if (codes.length === 0) {
+    if(codes.length === 0){
 
         noResult.style.display = "block";
 
@@ -1032,7 +954,7 @@ function displayCodes(codes) {
 
 
     codes.forEach(
-        function(data) {
+        (data) => {
 
 
             const card =
@@ -1044,7 +966,8 @@ function displayCodes(codes) {
 
 
             const code =
-                data.code || "UNKNOWN";
+                data.code ||
+                "UNKNOWN";
 
 
             const title =
@@ -1085,9 +1008,7 @@ function displayCodes(codes) {
 
                     <div class="system">
 
-                        ${escapeHTML(
-                            system
-                        )}
+                        ${escapeHTML(system)}
 
                     </div>
 
@@ -1096,18 +1017,14 @@ function displayCodes(codes) {
 
                 <h4>
 
-                    ${escapeHTML(
-                        title
-                    )}
+                    ${escapeHTML(title)}
 
                 </h4>
 
 
                 <div class="short">
 
-                    ${escapeHTML(
-                        symptoms
-                    )}
+                    ${escapeHTML(symptoms)}
 
                 </div>
 
@@ -1121,9 +1038,7 @@ function displayCodes(codes) {
                             Symptoms
                         </strong>
 
-                        ${escapeHTML(
-                            symptoms
-                        )}
+                        ${escapeHTML(symptoms)}
 
                     </div>
 
@@ -1134,9 +1049,7 @@ function displayCodes(codes) {
                             Possible Causes
                         </strong>
 
-                        ${escapeHTML(
-                            causes
-                        )}
+                        ${escapeHTML(causes)}
 
                     </div>
 
@@ -1147,9 +1060,7 @@ function displayCodes(codes) {
                             Check / Solution
                         </strong>
 
-                        ${escapeHTML(
-                            solution
-                        )}
+                        ${escapeHTML(solution)}
 
                     </div>
 
@@ -1159,11 +1070,11 @@ function displayCodes(codes) {
             `;
 
 
-            /* CLICK TO OPEN DETAILS */
+            /* OPEN DETAILS */
 
             card.addEventListener(
                 "click",
-                function() {
+                () => {
 
                     const details =
                         card.querySelector(
@@ -1171,22 +1082,14 @@ function displayCodes(codes) {
                         );
 
 
-                    if (
+                    details.style.display =
+
                         details.style.display ===
                         "block"
-                    ) {
 
-                        details.style.display =
-                            "none";
+                        ? "none"
 
-                    }
-
-                    else {
-
-                        details.style.display =
-                            "block";
-
-                    }
+                        : "block";
 
                 }
             );
@@ -1200,9 +1103,9 @@ function displayCodes(codes) {
 }
 
 
-/* ================= SEARCH ================= */
+/* SEARCH */
 
-function searchCodes() {
+function searchCodes(){
 
     const search =
         searchInput.value
@@ -1222,7 +1125,7 @@ function searchCodes() {
 
     const filtered =
         allCodes.filter(
-            function(data) {
+            (data) => {
 
 
                 const code =
@@ -1267,7 +1170,7 @@ function searchCodes() {
                     ).toLowerCase();
 
 
-                const searchText =
+                const text =
 
                     code + " " +
                     title + " " +
@@ -1276,36 +1179,29 @@ function searchCodes() {
                     solution;
 
 
-                const matchesSearch =
+                const searchMatch =
 
                     search === "" ||
-
-                    searchText.includes(
-                        search
-                    );
+                    text.includes(search);
 
 
-                const matchesSystem =
+                const systemMatch =
 
                     selectedSystem === "all" ||
-
-                    system ===
-                    selectedSystem;
+                    system === selectedSystem;
 
 
-                const matchesType =
+                const typeMatch =
 
                     selectedType === "all" ||
-
-                    type ===
-                    selectedType;
+                    type === selectedType;
 
 
                 return (
 
-                    matchesSearch &&
-                    matchesSystem &&
-                    matchesType
+                    searchMatch &&
+                    systemMatch &&
+                    typeMatch
 
                 );
 
@@ -1318,59 +1214,41 @@ function searchCodes() {
 }
 
 
-/* ================= ESCAPE HTML ================= */
+/* ESCAPE */
 
-function escapeHTML(value) {
+function escapeHTML(value){
 
     return String(value)
 
-        .replace(
-            /&/g,
-            "&amp;"
-        )
+        .replace(/&/g,"&amp;")
 
-        .replace(
-            /</g,
-            "&lt;"
-        )
+        .replace(/</g,"&lt;")
 
-        .replace(
-            />/g,
-            "&gt;"
-        )
+        .replace(/>/g,"&gt;")
 
-        .replace(
-            /"/g,
-            "&quot;"
-        )
+        .replace(/"/g,"&quot;")
 
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+        .replace(/'/g,"&#039;");
 
 }
 
 
-/* ================= EVENTS ================= */
+/* EVENTS */
 
 searchButton.addEventListener(
     "click",
     searchCodes
 );
 
-
 searchInput.addEventListener(
     "input",
     searchCodes
 );
 
-
 systemFilter.addEventListener(
     "change",
     searchCodes
 );
-
 
 typeFilter.addEventListener(
     "change",
@@ -1378,10 +1256,9 @@ typeFilter.addEventListener(
 );
 
 
-/* ================= START ================= */
+/* START */
 
 loadCodes();
-
 
 </script>
 
