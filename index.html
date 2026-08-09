@@ -1,67 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+    <title>Mechanical Library SP</title>
 
-body {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-.container {
-    text-align: center;
-    color: white;
-}
+        body {
+            background: #0b0f12;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
 
-h1 {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
+        /* ===== HEADER ===== */
+        header {
+            width: 100%;
+            padding: 15px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #11171c;
+            border-bottom: 2px solid #ff6a00;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-p {
-    font-size: 18px;
-    margin-bottom: 25px;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-button {
-    padding: 12px 30px;
-    border: none;
-    border-radius: 8px;
-    background: white;
-    color: #667eea;
-    font-size: 16px;
-    cursor: pointer;
-}
+        .gear {
+            font-size: 38px;
+            color: #ff6a00;
+            animation: rotate 8s linear infinite;
+        }
 
-button:hover {
-    background: #eee;
-}
-</style>
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .logo h1 {
+            font-size: 21px;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ff6a00;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff6a00;
+        }
+
+        .login-btn {
+            padding: 9px 18px;
+            border: 1px solid #ff6a00;
+            border-radius: 6px;
+            color: #ff6a00 !important;
+        }
+
+        .signup-btn {
+            padding: 10px 18px;
+            background: #ff6a00;
+            color: #fff !important;
+            border-radius: 6px;
+        }
+
+        .signup-btn:hover {
+            background: #ff8500;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            position: relative;
+            background:
+                radial-gradient(circle at center, #202a31 0%, #0b0f12 60%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border: 25px dashed #252f35;
+            border-radius: 50%;
+            right: -100px;
+            top: 100px;
+            animation: rotate 25s linear infinite;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            border: 18px dashed #252f35;
+            border-radius: 50%;
+            left: -100px;
+            bottom: 50px;
+            animation: rotate 18s linear infinite reverse;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #ff6a00;
+            border-radius: 30px;
+            color: #ff6a00;
+            margin-bottom: 20px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 {
+            font-size: clamp(38px, 7vw, 75px);
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 span {
+            color: #ff6a00;
+        }
+
+        .hero p {
+            color: #aeb7bd;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .main-btn {
+            padding: 14px 28px;
+            background: #ff6a00;
+            border: none;
+            border-radius: 7px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 106, 0, 0.35);
+        }
+
+        .second-btn {
+            padding: 13px 28px;
+            border: 1px solid #555;
+            border-radius: 7px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .second-btn:hover {
+            border-color: #ff6a00;
+            color: #ff6a00;
+        }
+
+        /* ===== FEATURES ===== */
+
+        .features {
+            padding: 70px 6%;
+            background: #0e1317;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h3 {
+            font-size: 35px;
+        }
+
+        .section-title span {
+            color: #ff6a00;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #151c21;
+            padding: 30px 22px;
+            border-radius: 10px;
+            border: 1px solid #252e34;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #ff6a00;
+        }
+
+        .card-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #929ca3;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #080b0d;
+            border-top: 1px solid #242b30;
+            color: #777;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #ff6a00;
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 13px 5%;
+            }
+
+            nav {
+                gap: 10px;
+            }
+
+            nav a:not(.login-btn):not(.signup-btn) {
+                display: none;
+            }
+
+            .logo h1 {
+                font-size: 16px;
+            }
+
+            .gear {
+                font-size: 30px;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero h2 {
+                font-size: 42px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Welcome</h1>
-    <p>Welcome to my website</p>
+    <!-- HEADER -->
+    <header>
 
-    <button onclick="window.location.href='login.html'">
-        Login
-    </button>
-</div>
+        <div class="logo">
+            <div class="gear">⚙</div>
+
+            <h1>
+                MECHANICAL <span>LIBRARY SP</span>
+            </h1>
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#library">Library</a>
+            <a href="#tools">Tools</a>
+
+            <a href="login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="signup.html" class="signup-btn">
+                Sign Up
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                ⚙ MECHANICAL KNOWLEDGE HUB
+            </div>
+
+            <h2>
+                Learn. Repair.<br>
+                <span>Master Mechanics.</span>
+            </h2>
+
+            <p>
+                Welcome to Mechanical Library SP — your digital workshop
+                for automobile mechanics, engine knowledge, diagnostic codes,
+                spare parts information, wiring diagrams and technical notes.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="signup.html" class="main-btn">
+                    🚀 Create Account
+                </a>
+
+                <a href="#library" class="second-btn">
+                    🔧 Explore Library
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features" id="library">
+
+        <div class="section-title">
+
+            <h3>
+                <span>Mechanical</span> Library
+            </h3>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-icon">🔧</div>
+
+                <h4>Engine Knowledge</h4>
+
+                <p>
+                    Engine components, working principles,
+                    troubleshooting and repair information.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🚗</div>
+
+                <h4>Vehicle Systems</h4>
+
+                <p>
+                    Complete information about vehicle systems,
+                    sensors, electrical and mechanical components.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">🧰</div>
+
+                <h4>Tools & Equipment</h4>
+
+                <p>
+                    Mechanical tools, measuring instruments,
+                    diagnostic equipment and their uses.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">⚡</div>
+
+                <h4>Electrical</h4>
+
+                <p>
+                    AC/DC wiring, sensors, circuits, batteries,
+                    alternator and starter system knowledge.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">📟</div>
+
+                <h4>OBD Error Codes</h4>
+
+                <p>
+                    Diagnostic trouble codes, symptoms,
+                    possible causes and repair solutions.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">📚</div>
+
+                <h4>Technical Notes</h4>
+
+                <p>
+                    Easy-to-understand mechanical notes for
+                    students, mechanics and technicians.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 <span>Mechanical Library SP</span>
+        | All Rights Reserved
+
+    </footer>
+
 
 </body>
 </html>
