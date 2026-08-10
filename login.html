@@ -45,6 +45,30 @@
             padding: 25px 15px;
 
             overflow: hidden;
+
+            position: relative;
+        }
+
+
+        /* ================= LANGUAGE SELECTOR ================= */
+
+        .lang-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+
+        .goog-te-gadget-simple {
+            background-color: #11171c !important;
+            border: 1px solid #303a40 !important;
+            padding: 6px 10px !important;
+            border-radius: 6px !important;
+            font-size: 13px !important;
+        }
+
+        .goog-te-gadget-simple span {
+            color: #ffffff !important;
         }
 
 
@@ -408,6 +432,11 @@
                 display: none;
             }
 
+            .lang-container {
+                top: 12px;
+                right: 12px;
+            }
+
         }
 
     </style>
@@ -416,6 +445,11 @@
 
 
 <body>
+
+
+    <!-- LANGUAGE SELECTOR -->
+
+    <div class="lang-container" id="google_translate_element"></div>
 
 
     <div class="gear gear1">⚙</div>
@@ -538,6 +572,23 @@
 
     </div>
 
+
+    <!-- GOOGLE TRANSLATE SCRIPT -->
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'hi,en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+    <!-- FIREBASE -->
 
     <script type="module">
 
@@ -714,12 +765,11 @@
                 try {
 
 
-                    // वही internal email
-                    // जो Signup में बनाया था
+                    // Internal email format matching signup.html
 
                     const internalEmail =
                         mobile +
-                        "@mechanicallibrary.app";
+                        "@mechanicallibrary.sp";
 
 
                     await signInWithEmailAndPassword(
