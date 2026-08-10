@@ -188,13 +188,13 @@
 <script type="module">
 
     import { initializeApp } 
-    from "[https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js](https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js)";
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 
-    import { getAuth, createUserWithEmailAndPassword }
-    from "[https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js](https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js)";
+    import { getAuth, createUserWithEmailAndPassword, sendEmailVerification }
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
     import { getFirestore, doc, setDoc }
-    from "[https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js](https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js)";
+    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 
     // Firebase Configuration
@@ -251,6 +251,10 @@
 
                 const user = userCredential.user;
 
+                // 1. Email Verification Link भेजना
+                await sendEmailVerification(user);
+
+                // 2. Database में डेटा सेव करना
                 await setDoc(
                     doc(db, "users", user.uid),
                     {
@@ -262,11 +266,11 @@
                 );
 
                 message.style.color = "#00ff88";
-                message.textContent = "Account created successfully!";
+                message.textContent = "Account created! A verification link has been sent to your email. Please verify before logging in.";
 
                 setTimeout(function() {
                     window.location.href = "login.html";
-                }, 2000);
+                }, 4000);
 
             } catch (error) {
 
