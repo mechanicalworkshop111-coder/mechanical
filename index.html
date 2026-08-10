@@ -191,13 +191,19 @@
             display: inline-block;
         }
 
+
         .goog-te-gadget-simple {
             background-color: #151c21 !important;
+
             border: 1px solid #303940 !important;
+
             padding: 5px 8px !important;
+
             border-radius: 6px !important;
+
             font-size: 14px !important;
         }
+
 
         .goog-te-gadget-simple span {
             color: #ffffff !important;
@@ -237,6 +243,7 @@
             position: absolute;
 
             width: 350px;
+
             height: 350px;
 
             border: 25px dashed #252f35;
@@ -244,6 +251,7 @@
             border-radius: 50%;
 
             right: -100px;
+
             top: 100px;
 
             animation:
@@ -258,6 +266,7 @@
             position: absolute;
 
             width: 250px;
+
             height: 250px;
 
             border: 18px dashed #252f35;
@@ -265,6 +274,7 @@
             border-radius: 50%;
 
             left: -100px;
+
             bottom: 50px;
 
             animation:
@@ -508,6 +518,44 @@
         }
 
 
+        /* ================= PDF CARD ================= */
+
+        .pdf-card {
+
+            border-color: #3a3430;
+        }
+
+
+        .pdf-card:hover {
+
+            border-color: #ff6a00;
+
+            box-shadow:
+                0 10px 30px
+                rgba(255,106,0,.15);
+        }
+
+
+        .pdf-label {
+
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 5px 9px;
+
+            border: 1px solid #ff6a00;
+
+            border-radius: 5px;
+
+            color: #ff6a00;
+
+            font-size: 11px;
+
+            font-weight: bold;
+        }
+
+
         /* ================= USER PANEL ================= */
 
         .user-panel {
@@ -626,6 +674,7 @@
 
             .user-panel {
                 padding-left: 5%;
+
                 padding-right: 5%;
             }
 
@@ -661,7 +710,6 @@
     </div>
 
 
-
     <nav>
 
 
@@ -682,7 +730,10 @@
 
         <!-- LANGUAGE SELECTOR -->
 
-        <div class="lang-container" id="google_translate_element"></div>
+        <div
+            class="lang-container"
+            id="google_translate_element">
+        </div>
 
 
         <!-- LOGIN -->
@@ -690,9 +741,10 @@
         <a
             href="login.html"
             class="login-btn"
-            id="loginLink"
-        >
+            id="loginLink">
+
             Login
+
         </a>
 
 
@@ -701,9 +753,10 @@
         <a
             href="signup.html"
             class="signup-btn"
-            id="signupLink"
-        >
+            id="signupLink">
+
             Sign Up
+
         </a>
 
 
@@ -715,11 +768,13 @@
                 Logged in
             </span>
 
+
             <button
                 class="logout-btn"
-                id="logoutButton"
-            >
+                id="logoutButton">
+
                 Logout
+
             </button>
 
         </div>
@@ -737,8 +792,7 @@
 
     <div
         class="user-box"
-        id="userBox"
-    >
+        id="userBox">
 
         👤 Welcome back!
 
@@ -767,10 +821,10 @@
         </div>
 
 
-
         <h2>
 
             Learn. Repair.
+
             <br>
 
             <span>
@@ -778,7 +832,6 @@
             </span>
 
         </h2>
-
 
 
         <p>
@@ -792,15 +845,13 @@
         </p>
 
 
-
         <div class="hero-buttons">
 
 
             <a
                 href="signup.html"
                 class="main-btn"
-                id="heroSignup"
-            >
+                id="heroSignup">
 
                 🚀 Create Account
 
@@ -809,8 +860,7 @@
 
             <a
                 href="#library"
-                class="second-btn"
-            >
+                class="second-btn">
 
                 🔧 Explore Library
 
@@ -829,8 +879,7 @@
 
 <section
     class="features"
-    id="library"
->
+    id="library">
 
 
     <div class="section-title">
@@ -848,7 +897,6 @@
     </div>
 
 
-
     <div class="cards">
 
 
@@ -856,8 +904,7 @@
 
         <a
             href="#"
-            class="card"
-        >
+            class="card">
 
             <div class="card-icon">
                 🔧
@@ -886,8 +933,7 @@
 
         <a
             href="#"
-            class="card"
-        >
+            class="card">
 
             <div class="card-icon">
                 🚗
@@ -916,8 +962,7 @@
 
         <a
             href="#"
-            class="card"
-        >
+            class="card">
 
             <div class="card-icon">
                 🧰
@@ -946,8 +991,7 @@
 
         <a
             href="#"
-            class="card"
-        >
+            class="card">
 
             <div class="card-icon">
                 ⚡
@@ -976,8 +1020,7 @@
 
         <a
             href="obd-codes.html"
-            class="card"
-        >
+            class="card">
 
             <div class="card-icon">
                 📟
@@ -1005,8 +1048,7 @@
 
         <a
             href="#"
-            class="card"
-        >
+            class="card">
 
             <div class="card-icon">
                 📚
@@ -1026,6 +1068,40 @@
                 and technicians.
 
             </p>
+
+        </a>
+
+
+
+        <!-- ================= PDF ================= -->
+
+        <a
+            href="Ashok Leyland ALU 400 Technical Specifications.pdf"
+            class="card pdf-card"
+            target="_blank">
+
+            <div class="card-icon">
+                📄
+            </div>
+
+
+            <h4>
+                Ashok Leyland ALU 400
+            </h4>
+
+
+            <p>
+
+                Technical specifications,
+                engine information and
+                technical reference manual.
+
+            </p>
+
+
+            <span class="pdf-label">
+                📖 OPEN PDF
+            </span>
 
         </a>
 
@@ -1052,19 +1128,33 @@
 
 
 
-<!-- ================= GOOGLE TRANSLATE SCRIPT ================= -->
+<!-- ================= GOOGLE TRANSLATE ================= -->
 
 <script type="text/javascript">
+
     function googleTranslateElementInit() {
+
         new google.translate.TranslateElement({
+
             pageLanguage: 'en',
+
             includedLanguages: 'hi,en',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+
+            layout:
+                google.translate.TranslateElement
+                .InlineLayout.SIMPLE
+
         }, 'google_translate_element');
+
     }
+
 </script>
 
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script
+    type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
 
 
 
@@ -1091,7 +1181,6 @@
 
     from
     "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-
 
 
     /* ================= FIREBASE CONFIG ================= */
@@ -1122,7 +1211,6 @@
     };
 
 
-
     /* ================= INITIALIZE ================= */
 
     const app =
@@ -1131,7 +1219,6 @@
 
     const auth =
         getAuth(app);
-
 
 
     /* ================= ELEMENTS ================= */
@@ -1184,15 +1271,17 @@
         );
 
 
-
     /* ================= AUTH STATE ================= */
 
     onAuthStateChanged(
+
         auth,
+
         function(user) {
 
 
             if (user) {
+
 
                 /* USER LOGGED IN */
 
@@ -1240,72 +1329,4 @@
                 }
 
 
-                userText.textContent =
-                    "👤 " +
-                    displayName;
-
-
-                loggedUser.textContent =
-                    displayName;
-
-            }
-
-            else {
-
-                /* USER NOT LOGGED IN */
-
-
-                loginLink.style.display =
-                    "inline-block";
-
-
-                signupLink.style.display =
-                    "inline-block";
-
-
-                heroSignup.style.display =
-                    "inline-block";
-
-
-                userArea.style.display =
-                    "none";
-
-
-                userBox.style.display =
-                    "none";
-
-            }
-
-        }
-    );
-
-
-
-    /* ================= LOGOUT ================= */
-
-    logoutButton.addEventListener(
-        "click",
-        async function() {
-
-
-            try {
-
-                await signOut(auth);
-
-
-                window.location.href =
-                    "index.html";
-
-            }
-
-            catch(error) {
-
-                console.error(
-                    "Logout Error:",
-                    error
-                );
-
-                alert(
-                    "Logout failed. Please try again."
-                );
-    
+               
