@@ -155,7 +155,7 @@
         <input
             type="password"
             id="password"
-            placeholder="Create password (min 6 chars)"
+            placeholder="Create password"
             minlength="6"
             required
         >
@@ -233,9 +233,9 @@
 
             const message = document.getElementById("message");
 
-            // 1. Check Mobile Validation (6,7,8,9 se shuru hone wala valid 10-digit number)
-            const fakePattern = /^(\d)\1{9}$/; // Block 2222222222, 3333333333, etc.
-            const sequentialPattern = /^(0123456789|1234567890)$/; // Block 1234567890
+            // 1. Mobile Check (Block 2222222222, 3333333333, 1234567890)
+            const fakePattern = /^(\d)\1{9}$/;
+            const sequentialPattern = /^(0123456789|1234567890)$/;
 
             if (!/^[6-9]\d{9}$/.test(mobile) || fakePattern.test(mobile) || sequentialPattern.test(mobile)) {
                 message.style.color = "#ff4444";
@@ -252,7 +252,7 @@
 
             try {
 
-                // Internal email generate for Firebase Auth (mobile + domain)
+                // Internal email format for Firebase Auth
                 const internalEmail = mobile + "@mechanicallibrary.sp";
 
                 const userCredential = await createUserWithEmailAndPassword(
