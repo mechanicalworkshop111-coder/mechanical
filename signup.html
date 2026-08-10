@@ -133,7 +133,7 @@
 
     <form id="signupForm">
 
-        <label>Full Name</label>
+        <label>Name</label>
         <input
             type="text"
             id="name"
@@ -145,7 +145,7 @@
         <input
             type="email"
             id="email"
-            placeholder="example@gmail.com"
+            placeholder="Enter your email"
             required
         >
 
@@ -156,7 +156,6 @@
             placeholder="Enter 10 digit mobile number"
             maxlength="10"
             pattern="[0-9]{10}"
-            title="Please enter a valid 10 digit mobile number"
             required
         >
 
@@ -164,7 +163,7 @@
         <input
             type="password"
             id="password"
-            placeholder="Create password (min 6 characters)"
+            placeholder="Create password"
             minlength="6"
             required
         >
@@ -189,13 +188,13 @@
 <script type="module">
 
     import { initializeApp } 
-    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+    from "[https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js](https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js)";
 
     import { getAuth, createUserWithEmailAndPassword }
-    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+    from "[https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js](https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js)";
 
     import { getFirestore, doc, setDoc }
-    from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+    from "[https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js](https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js)";
 
 
     // Firebase Configuration
@@ -235,7 +234,7 @@
 
             const message = document.getElementById("message");
 
-            // Mobile validation (10 Digits Check)
+            // Mobile validation
             if (!/^[0-9]{10}$/.test(mobile)) {
                 message.style.color = "#ff4444";
                 message.textContent = "Please enter a valid 10 digit mobile number.";
@@ -243,7 +242,7 @@
             }
 
             try {
-                // Real Email address se Firebase Authentication
+
                 const userCredential = await createUserWithEmailAndPassword(
                     auth,
                     email,
@@ -252,7 +251,6 @@
 
                 const user = userCredential.user;
 
-                // User profile details Firestore Database me save
                 await setDoc(
                     doc(db, "users", user.uid),
                     {
@@ -266,7 +264,6 @@
                 message.style.color = "#00ff88";
                 message.textContent = "Account created successfully!";
 
-                // 2 second baad login page par bheje
                 setTimeout(function() {
                     window.location.href = "login.html";
                 }, 2000);
